@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="iainjobseeker.Views.JobSeeker.AiInterviewPrepPage"
+             WidthRequest="1920"
+             HeightRequest="1080"
+             BackgroundColor="White">
+
+    <Grid ColumnDefinitions="Auto, Auto, *, Auto, Auto" RowDefinitions="Auto, *, Auto, Auto">
+
+        <VerticalStackLayout Background="{DynamicResource backgroundSidebar}" 
+                             WidthRequest="242" 
+                             HeightRequest="1080" 
+                             Grid.Column="0" 
+                             Grid.RowSpan="2" Margin="0,0,0,0">
+            <HorizontalStackLayout>
+                <Button Text="☰" FontSize="18"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Start"
+                        BackgroundColor="Transparent"
+                        TextColor="#707FDD"
+                        Margin="5"/>
+                <Image Source="iain.png" Grid.Column="1" HeightRequest="70" WidthRequest="70" Margin="30,0,0,0"/>
+            </HorizontalStackLayout>
+            <Label></Label>
+            <Grid>
+                <Label Text="MENU" Style="{StaticResource sidebarLabelStyle}" Grid.Column="3" VerticalOptions="Center" Margin="50,30,0,0"></Label>
+            </Grid>
+
+            <!--sidebar items-->
+            <Grid ColumnDefinitions="Auto, Auto"
+              HeightRequest="50"
+              VerticalOptions="Center">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnDashboardTapped"/>
+                </Grid.GestureRecognizers>
+                <Image Source="dashboard.png"
+                   HeightRequest="35"
+                   WidthRequest="35"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Start"
+                   Margin="43,0,0,0" />
+                <Label Text="Home"
+                   Grid.Column="1"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Start"
+                   Style="{StaticResource sidebarLabelStyle}"/>
+            </Grid>
+
+            <Grid ColumnDefinitions="Auto, Auto"
+              HeightRequest="50" Margin="0,0,0,0"
+              VerticalOptions="Center">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnAiInterviewPrepTapped"/>
+                </Grid.GestureRecognizers>
+                <Image Source="aiprep.png"
+                   HeightRequest="33"
+                   WidthRequest="33"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Start"
+                   Margin="43,0,0,0" />
+                <Label Text="Ai Interview Prep"
+                   Grid.Column="1"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Start"
+                       Margin="2,0,0,0"
+                   Style="{StaticResource sidebarLabelStyle}"/>
+            </Grid>
+
+            <Grid ColumnDefinitions="Auto, Auto"
+              HeightRequest="50" Margin="0,0,0,0"
+              VerticalOptions="Center">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnSavedJobsTapped"/>
+                </Grid.GestureRecognizers>
+                <Image Source="savejobs.png"
+                   HeightRequest="35"
+                   WidthRequest="35"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Start"
+                   Margin="43,0,0,0" />
+                <Label Text="Saved Jobs"
+                   Grid.Column="1"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Start"
+                   Style="{StaticResource sidebarLabelStyle}"/>
+            </Grid>
+
+            <Grid ColumnDefinitions="Auto, Auto"
+              HeightRequest="50" Margin="0,0,0,0"
+              VerticalOptions="Center">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnMessagesTapped"/>
+                </Grid.GestureRecognizers>
+                <Image Source="messages.png"
+                   HeightRequest="30"
+                   WidthRequest="30"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Start"
+                   Margin="46,0,0,0" />
+                <Label Text="Messages"
+                   Grid.Column="1"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Start"
+                       Margin="3,0,0,0"
+                   Style="{StaticResource sidebarLabelStyle}"/>
+            </Grid>
+
+            <Grid>
+                <Label Text="OTHERS" Style="{StaticResource sidebarLabelStyle}" Grid.Column="3" VerticalOptions="Center" Margin="50,30,0,0"></Label>
+            </Grid>
+
+            <Grid ColumnDefinitions="Auto, Auto"
+              HeightRequest="50" Margin="0,0,0,0"
+              VerticalOptions="Center">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnSettingsTapped"/>
+                </Grid.GestureRecognizers>
+                <Image Source="settings.png"
+                   HeightRequest="35"
+                   WidthRequest="35"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Start"
+                   Margin="43,0,0,0" />
+                <Label Text="Settings"
+                   Grid.Column="1"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Start"
+                   Style="{StaticResource sidebarLabelStyle}"/>
+            </Grid>
+
+            <Grid ColumnDefinitions="Auto, Auto"
+              HeightRequest="50" Margin="0,0,0,0"
+              VerticalOptions="Center">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnAccountsTapped"/>
+                </Grid.GestureRecognizers>
+                <Image Source="accounts.png"
+                   HeightRequest="30"
+                   WidthRequest="30"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Start"
+                   Margin="44,0,0,0" />
+                <Label Text="Accounts"
+                   Grid.Column="1"
+                   VerticalOptions="Center"
+                   Margin="3,0,0,0" 
+                   HorizontalOptions="Start"
+                   Style="{StaticResource sidebarLabelStyle}"/>
+            </Grid>
+
+            <Grid ColumnDefinitions="Auto, Auto"
+              HeightRequest="50" Margin="0,0,0,0"
+              VerticalOptions="Center">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnHelpsTapped"/>
+                </Grid.GestureRecognizers>
+                <Image Source="help.png"
+                   HeightRequest="35"
+                   WidthRequest="35"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Start"
+                   Margin="42,0,0,0"/>
+                <Label Text="Help"
+                   Grid.Column="1"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Start"
+                   Style="{StaticResource sidebarLabelStyle}"/>
+            </Grid>
+        </VerticalStackLayout>
+
+        <!--ProfileSection-->
+        <HorizontalStackLayout  Grid.Column="1" Margin="30,0,0,0" Grid.Row="0" Spacing="8" 
+                         VerticalOptions="Center" 
+                         HorizontalOptions="Center">
+            <Image Source="profile.png"  
+                WidthRequest="30" 
+                HeightRequest="30" 
+                HorizontalOptions="Center">
+            </Image>
+            <Label Text="Mr. Kupido"
+                FontFamily="PoppinsRegular"
+                FontSize="14"
+                VerticalOptions="Center"
+                TextColor="#707FDD" Margin="0,0,300,0" />
+
+            <!--SearchSection-->
+            <Frame  BackgroundColor="#F6F6FB"
+        Grid.Column="2"
+        Grid.Row="0"
+        WidthRequest="300"
+        HeightRequest="45"
+        BorderColor="Transparent"
+        CornerRadius="10"
+        Padding="0"
+        HasShadow="False"
+        VerticalOptions="Center"
+        HorizontalOptions="End"
+         Margin="750,0,15,0">
+
+                <Grid ColumnDefinitions="*, Auto"
+   VerticalOptions="Center"
+   Padding="10,0" Grid.Row="0">
+                    <Entry x:Name="SearchEntry"
+             Placeholder="Search here"
+             BackgroundColor="Transparent"
+             VerticalOptions="Center"
+             Style="{StaticResource infoLabelStyle}" />
+
+                    <ImageButton Source="magnifying.png"
+      WidthRequest="24"
+      HeightRequest="24"
+      BackgroundColor="Transparent"
+      HorizontalOptions="Center"
+      Margin="240,0,0,0"
+      VerticalOptions="Center"
+      Aspect="AspectFit"/>
+
+                </Grid>
+            </Frame>
+
+            <HorizontalStackLayout Grid.Column="3"
+                        Grid.Row="0"
+                        Padding="0"
+                        Spacing="10"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        Margin="30,0,20,0">
+
+                <Button Text="–"
+     FontSize="20"
+     WidthRequest="40"
+     HeightRequest="40"
+     Clicked="OnMinimizeClicked"
+     BackgroundColor="Transparent"
+     TextColor="{DynamicResource button}"
+     CornerRadius="0" />
+
+                <Button Text="✕"
+     FontSize="15"
+     WidthRequest="40"
+     HeightRequest="40"
+     Clicked="OnCloseClicked"
+     BackgroundColor="Transparent"
+     TextColor="{DynamicResource button}"
+     CornerRadius="0" />
+
+            </HorizontalStackLayout>
+        </HorizontalStackLayout>
+
+        <BoxView Grid.Row="0"
+                 Grid.ColumnSpan="5"
+                 HeightRequest="0.5"
+                 Color="#CCCCCC"
+                 HorizontalOptions="FillAndExpand"
+                 Margin="0,65,0,0" />
+
+
+        <!--MainContent-->
+        <HorizontalStackLayout Grid.Column="1" 
+                               Grid.Row="1" 
+                               Margin="-85,0,0,900" 
+                               Spacing="410"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center">
+
+            <HorizontalStackLayout>
+                <!-- Dropdown Job Role -->
+                <Picker Title="Select a Job Role"
+        FontSize="12"
+        FontFamily="PoppinsRegular"
+        TextColor="Black"
+        BackgroundColor="{DynamicResource backgroundSidebar}"
+        TitleColor="Gray"
+                    WidthRequest="250">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Live Seller</x:String>
+                            <x:String>Sales Validator</x:String>
+                            <x:String>Inventory</x:String>
+                            <x:String>Customer Support</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+            </HorizontalStackLayout>
+            <!-- Dropdown Difficulty -->
+            <Picker Title="Select a Difficulty"
+        FontSize="12"
+        FontFamily="PoppinsRegular"
+        TextColor="Black"
+        BackgroundColor="{DynamicResource backgroundSidebar}"
+        TitleColor="Gray"
+                    WidthRequest="200">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Beginner</x:String>
+                        <x:String>Normal</x:String>
+                        <x:String>Hard</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+
+            </Picker>
+
+            <!-- Dropdown Ai Assistant -->
+            <Picker Title="Choose AI Assistant"
+        FontSize="12" 
+        FontFamily="PoppinsRegular"
+        TextColor="Black"
+        BackgroundColor="{DynamicResource backgroundSidebar}"
+        TitleColor="Gray"
+                    WidthRequest="200">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Iain</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+        </HorizontalStackLayout>
+
+        <Frame Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="1" VerticalOptions="Center" 
+       HorizontalOptions="Start" HeightRequest="470"
+       BackgroundColor="#FBFCFE" WidthRequest="800" Margin="60,-330,0,10" 
+       BorderColor="#DDE4F0" CornerRadius="10" >
+
+            <!-- Message Box -->
+            <Frame BackgroundColor="#F6F6FB"
+           WidthRequest="750"
+           HeightRequest="45"
+           BorderColor="#DEE1F4"
+           CornerRadius="10"
+           Padding="0"
+           VerticalOptions="End"
+           HorizontalOptions="Start"
+           Margin="0,0,0,0">
+
+                <Grid ColumnDefinitions="*, Auto"
+              Padding="10,0" 
+              VerticalOptions="FillAndExpand">
+                    <Entry x:Name="Messagge"
+                   Placeholder="Write a message..."
+                   BackgroundColor="Transparent"
+                   VerticalOptions="FillAndExpand"  
+                        HorizontalOptions="Start"
+                         
+                        TextColor="#1F384C" FontFamily="PoppinsRegular"/>
+                </Grid>
+            </Frame>
+        </Frame>
+
+        <Frame Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="2" VerticalOptions="Center" 
+               HorizontalOptions="Start" HeightRequest="390"
+               BackgroundColor="#FBFCFE" WidthRequest="800" Margin="60,-450,0,10"
+               BorderColor="#DDE4F0"
+               CornerRadius="10">
+
+            <HorizontalStackLayout Spacing="0" Padding="10" HorizontalOptions="Center" VerticalOptions="End" Margin="0,0,0,0" >
+                <ImageButton x:Name="OffCamera"
+                 Source="oncam.png" 
+                    WidthRequest="80"
+                 HeightRequest="80"
+                 Clicked="OffCamClicked"/>
+
+                <ImageButton x:Name="OnCamera"
+                        Source="offcam.png" 
+                        WidthRequest="80"
+                         HeightRequest="80"
+                         IsVisible="False"
+                        Clicked="OnCamClicked"/>
+
+                <ImageButton x:Name="Endcall" 
+                       Source="endcall.png" 
+                       Aspect="AspectFit" 
+                       HeightRequest="100" 
+                       WidthRequest="100"
+                       Clicked="EndCallPrep"/>
+            </HorizontalStackLayout>
+        </Frame>
+        
+        <Frame Grid.ColumnSpan="1" Grid.Column="1" Grid.Row="1" VerticalOptions="Center" 
+       HorizontalOptions="End" HeightRequest="880"
+       BackgroundColor="#FBFCFE" WidthRequest="440" Margin="0,0,350,-70"
+       BorderColor="#DDE4F0"
+       CornerRadius="10">
+
+            <Label Text="Comments" FontFamily="PoppinsRegular"
+                   FontSize="16" TextColor="Gray"> </Label>
+        </Frame>
+
+        <Button Text="Start" BackgroundColor="#5A67BA" TextColor="White" FontSize="14" FontFamily="PoppinsRegular" 
+                CornerRadius="30" WidthRequest="150" HeightRequest="50" 
+                Grid.Column="3" Grid.Row="2" Margin="-300,-150,0,0">
+        </Button>
+        
+        
+        
+    </Grid>
+</ContentPage>

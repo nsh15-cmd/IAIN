@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+xmlns:picker="clr-namespace:Syncfusion.Maui.Picker;assembly=Syncfusion.Maui.Picker"
+xmlns:dataform="clr-namespace:Syncfusion.Maui.DataForm;assembly=Syncfusion.Maui.DataForm"
+             xmlns:core="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             
+             x:Class="iainjobseeker.Views.JobSeeker.JbAccountPage"
+         WidthRequest="1920"
+         HeightRequest="1080"
+         BackgroundColor="White">
+
+    <Grid ColumnDefinitions="Auto, Auto, *, Auto, Auto" RowDefinitions="Auto, *, Auto, Auto">
+
+        <VerticalStackLayout Background="{DynamicResource backgroundSidebar}" 
+                         WidthRequest="242" 
+                         HeightRequest="1080" 
+                         Grid.Column="0" 
+                         Grid.RowSpan="2" Margin="0,0,0,0">
+            <HorizontalStackLayout>
+                <Button Text="☰" FontSize="18"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Start"
+                    BackgroundColor="Transparent"
+                    TextColor="#707FDD"
+                    Margin="5"/>
+                <Image Source="iain.png" Grid.Column="1" HeightRequest="70" WidthRequest="70" Margin="30,0,0,0"/>
+            </HorizontalStackLayout>
+            <Label></Label>
+            <Grid>
+                <Label Text="MENU" Style="{StaticResource sidebarLabelStyle}" Grid.Column="3" VerticalOptions="Center" Margin="50,30,0,0"></Label>
+            </Grid>
+
+            <!--sidebar items-->
+            <Grid ColumnDefinitions="Auto, Auto"
+          HeightRequest="50"
+          VerticalOptions="Center">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnDashboardTapped"/>
+                </Grid.GestureRecognizers>
+                <Image Source="dashboard.png"
+               HeightRequest="35"
+               WidthRequest="35"
+               VerticalOptions="Center"
+               HorizontalOptions="Start"
+               Margin="43,0,0,0" />
+                <Label Text="Home"
+               Grid.Column="1"
+               VerticalOptions="Center"
+               HorizontalOptions="Start"
+               Style="{StaticResource sidebarLabelStyle}"/>
+            </Grid>
+
+            <Grid ColumnDefinitions="Auto, Auto"
+          HeightRequest="50" Margin="0,0,0,0"
+          VerticalOptions="Center">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnAiInterviewPrepTapped"/>
+                </Grid.GestureRecognizers>
+                <Image Source="aiprep.png"
+               HeightRequest="33"
+               WidthRequest="33"
+               VerticalOptions="Center"
+               HorizontalOptions="Start"
+               Margin="43,0,0,0" />
+                <Label Text="Ai Interview Prep"
+               Grid.Column="1"
+               VerticalOptions="Center"
+               HorizontalOptions="Start"
+                   Margin="2,0,0,0"
+               Style="{StaticResource sidebarLabelStyle}"/>
+            </Grid>
+
+            <Grid ColumnDefinitions="Auto, Auto"
+          HeightRequest="50" Margin="0,0,0,0"
+          VerticalOptions="Center">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnSavedJobsTapped"/>
+                </Grid.GestureRecognizers>
+                <Image Source="savejobs.png"
+               HeightRequest="35"
+               WidthRequest="35"
+               VerticalOptions="Center"
+               HorizontalOptions="Start"
+               Margin="43,0,0,0" />
+                <Label Text="Saved Jobs"
+               Grid.Column="1"
+               VerticalOptions="Center"
+               HorizontalOptions="Start"
+               Style="{StaticResource sidebarLabelStyle}"/>
+            </Grid>
+
+            <Grid ColumnDefinitions="Auto, Auto"
+          HeightRequest="50" Margin="0,0,0,0"
+          VerticalOptions="Center">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnMessagesTapped"/>
+                </Grid.GestureRecognizers>
+                <Image Source="messages.png"
+               HeightRequest="30"
+               WidthRequest="30"
+               VerticalOptions="Center"
+               HorizontalOptions="Start"
+               Margin="46,0,0,0" />
+                <Label Text="Messages"
+               Grid.Column="1"
+               VerticalOptions="Center"
+               HorizontalOptions="Start"
+                   Margin="3,0,0,0"
+               Style="{StaticResource sidebarLabelStyle}"/>
+            </Grid>
+
+            <Grid>
+                <Label Text="OTHERS" Style="{StaticResource sidebarLabelStyle}" Grid.Column="3" VerticalOptions="Center" Margin="50,30,0,0"></Label>
+            </Grid>
+
+            <Grid ColumnDefinitions="Auto, Auto"
+          HeightRequest="50" Margin="0,0,0,0"
+          VerticalOptions="Center">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnSettingsTapped"/>
+                </Grid.GestureRecognizers>
+                <Image Source="settings.png"
+               HeightRequest="35"
+               WidthRequest="35"
+               VerticalOptions="Center"
+               HorizontalOptions="Start"
+               Margin="43,0,0,0" />
+                <Label Text="Settings"
+               Grid.Column="1"
+               VerticalOptions="Center"
+               HorizontalOptions="Start"
+               Style="{StaticResource sidebarLabelStyle}"/>
+            </Grid>
+
+            <Grid ColumnDefinitions="Auto, Auto"
+          HeightRequest="50" Margin="0,0,0,0"
+          VerticalOptions="Center">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnAccountsTapped"/>
+                </Grid.GestureRecognizers>
+                <Image Source="accounts.png"
+               HeightRequest="30"
+               WidthRequest="30"
+               VerticalOptions="Center"
+               HorizontalOptions="Start"
+               Margin="44,0,0,0" />
+                <Label Text="Accounts"
+               Grid.Column="1"
+               VerticalOptions="Center"
+               Margin="3,0,0,0" 
+               HorizontalOptions="Start"
+               Style="{StaticResource sidebarLabelStyle}"/>
+            </Grid>
+
+            <Grid ColumnDefinitions="Auto, Auto"
+          HeightRequest="50" Margin="0,0,0,0"
+          VerticalOptions="Center">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnHelpsTapped"/>
+                </Grid.GestureRecognizers>
+                <Image Source="help.png"
+               HeightRequest="35"
+               WidthRequest="35"
+               VerticalOptions="Center"
+               HorizontalOptions="Start"
+               Margin="42,0,0,0"/>
+                <Label Text="Help"
+               Grid.Column="1"
+               VerticalOptions="Center"
+               HorizontalOptions="Start"
+               Style="{StaticResource sidebarLabelStyle}"/>
+            </Grid>
+        </VerticalStackLayout>
+
+        <!--ProfileSection-->
+        <HorizontalStackLayout  Grid.Column="1" Margin="30,0,0,0" Grid.Row="0" Spacing="8" 
+                         VerticalOptions="Center" 
+                         HorizontalOptions="Center">
+            <Image Source="profile.png"  
+                WidthRequest="30" 
+                HeightRequest="30" 
+                HorizontalOptions="Center">
+            </Image>
+            <Label Text="Mr. Kupido"
+                FontFamily="PoppinsRegular"
+                FontSize="14"
+                VerticalOptions="Center"
+                TextColor="#707FDD" Margin="0,0,300,0" />
+
+            <!--SearchSection-->
+            <Frame  BackgroundColor="#F6F6FB"
+        Grid.Column="2"
+        Grid.Row="0"
+        WidthRequest="300"
+        HeightRequest="45"
+        BorderColor="Transparent"
+        CornerRadius="10"
+        Padding="0"
+        HasShadow="False"
+        VerticalOptions="Center"
+        HorizontalOptions="End"
+         Margin="750,0,15,0">
+
+                <Grid ColumnDefinitions="*, Auto"
+   VerticalOptions="Center"
+   Padding="10,0" Grid.Row="0">
+                    <Entry x:Name="SearchEntry"
+             Placeholder="Search here"
+             BackgroundColor="Transparent"
+             VerticalOptions="Center"
+             Style="{StaticResource infoLabelStyle}" />
+
+                    <ImageButton Source="magnifying.png"
+      WidthRequest="24"
+      HeightRequest="24"
+      BackgroundColor="Transparent"
+      HorizontalOptions="Center"
+      Margin="240,0,0,0"
+      VerticalOptions="Center"
+      Aspect="AspectFit"/>
+
+                </Grid>
+            </Frame>
+
+            <HorizontalStackLayout Grid.Column="3"
+                        Grid.Row="0"
+                        Padding="0"
+                        Spacing="10"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        Margin="30,0,20,0">
+
+                <Button Text="–"
+     FontSize="20"
+     WidthRequest="40"
+     HeightRequest="40"
+     Clicked="OnMinimizeClicked"
+     BackgroundColor="Transparent"
+     TextColor="{DynamicResource button}"
+     CornerRadius="0" />
+
+                <Button Text="✕"
+     FontSize="15"
+     WidthRequest="40"
+     HeightRequest="40"
+     Clicked="OnCloseClicked"
+     BackgroundColor="Transparent"
+     TextColor="{DynamicResource button}"
+     CornerRadius="0" />
+
+            </HorizontalStackLayout>
+        </HorizontalStackLayout>
+
+        <BoxView Grid.Row="0"
+             Grid.ColumnSpan="5"
+             HeightRequest="0.5"
+             Color="#CCCCCC"
+             HorizontalOptions="FillAndExpand"
+             Margin="0,65,0,0" />
+        
+        <Label Text="Accounts" 
+                   HorizontalOptions="Center" 
+                   VerticalOptions="Center" Style="{StaticResource headerlineLabelStyle}" 
+                   Margin="0,0,0,900" FontSize="25"
+                   Grid.Column="1" Grid.Row="1"/>
+
+
+
+        <Frame Grid.Column="1" Grid.Row="1" Background="#FBFCFE" BorderColor="#DDE4F0" WidthRequest="1180" HeightRequest="800">
+            <ScrollView>
+
+
+                <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto"
+              ColumnDefinitions="Auto,*" ColumnSpacing="20" RowSpacing="10">
+
+                        <VerticalStackLayout Spacing="20" VerticalOptions="Center" Grid.Row="0" Grid.Column="0" HorizontalOptions="Start">
+                        <Label Text="Personal Information" Style="{DynamicResource infoLabelStyle}"
+               VerticalOptions="Center" HorizontalOptions="Center" FontSize="18"/>
+
+                        <core:SfAvatarView ContentType="Custom"
+                           ImageSource="employerr.png"
+                           AvatarName="N"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Start"  
+                           HeightRequest="70"
+                           CornerRadius="35"
+                           WidthRequest="70"/>
+
+                    </VerticalStackLayout>
+
+
+                    <HorizontalStackLayout Spacing="30" Grid.Row="1">
+                            <Label  Text="First Name" FontFamily="PoppinsRegular" FontSize="14" TextColor="#737B8B" />
+                            <Frame Background="#F5F7FA" BorderColor="#DDE4F0" HeightRequest="50" Padding="0,0,0,0" WidthRequest="700" MinimumWidthRequest="700"
+                               HorizontalOptions="Center">
+                                <Entry Placeholder="Write your first name here" 
+                                       MinimumHeightRequest="30" MinimumWidthRequest="700"
+                                       Text="{Binding UserObject.FirstName}"/>
+                            </Frame>
+                        </HorizontalStackLayout>
+                    
+                    <HorizontalStackLayout Spacing="30" Grid.Row="2">
+                        <Label Grid.Row="0" Text="Last Name" FontFamily="PoppinsRegular" FontSize="14" TextColor="#737B8B" />
+                        <Frame Background="#F5F7FA" BorderColor="#DDE4F0" HeightRequest="50" Padding="0,0,0,0" WidthRequest="700" MinimumWidthRequest="700"
+                               HorizontalOptions="Center">
+                            <Entry Placeholder="Write your last name here" 
+                                       MinimumHeightRequest="30" MinimumWidthRequest="700"
+                                       Text="{Binding UserObject.LastName}"/>
+                        </Frame>
+                    </HorizontalStackLayout>
+
+                    <HorizontalStackLayout Spacing="67" Grid.Row="3">
+                        <Label Grid.Row="0" Text="Email" FontFamily="PoppinsRegular" FontSize="14" TextColor="#737B8B" />
+                        <Frame Background="#F5F7FA" BorderColor="#DDE4F0" HeightRequest="50" Padding="0,0,0,0" WidthRequest="700" MinimumWidthRequest="700"
+                               HorizontalOptions="Center">
+                            <Entry Placeholder="Write your email here" 
+                                       MinimumHeightRequest="30" MinimumWidthRequest="700"
+                                       Text="{Binding UserObject.Email}" TextColor="#737B8B" />
+                        </Frame>
+                    </HorizontalStackLayout>
+
+                    <HorizontalStackLayout Spacing="61" Grid.Row="4">
+                        <Label Grid.Row="0" Text="Phone" FontFamily="PoppinsRegular" FontSize="14" TextColor="#737B8B" />
+                        <Frame Background="#F5F7FA" BorderColor="#DDE4F0" HeightRequest="50" Padding="0,0,0,0" WidthRequest="700" MinimumWidthRequest="700"
+                               HorizontalOptions="Center">
+                            <Entry Placeholder="Write your phone number here" 
+                                       MinimumHeightRequest="30" MinimumWidthRequest="700"
+                                       Text="{Binding UserObject.PhoneNumber}" TextColor="#737B8B" Keyboard="Numeric"/>
+                        </Frame>
+                    </HorizontalStackLayout>
+
+            
+                    
+
+                    <Label Grid.Row="5" Text="Is Enrolled?" FontFamily="PoppinsRegular" FontSize="12" TextColor="#737B8B" />
+                    <FlexLayout Grid.Row="5" Grid.Column="1" Wrap="Wrap" Direction="Row">
+                        <HorizontalStackLayout>
+                            <Label Text="401k?" FontFamily="PoppinsRegular" FontSize="12" TextColor="#737B8B" />
+                            <CheckBox IsChecked="{Binding UserObject.IsEnrolledIn401k}" />
+                        </HorizontalStackLayout>
+                        <HorizontalStackLayout>
+                            <Label Text="Flex Time?" FontFamily="PoppinsRegular" FontSize="12" TextColor="#737B8B" />
+                            <CheckBox x:Name="FlexTime" IsChecked="{Binding UserObject.IsEnrolledInFlexTime}" />
+                        </HorizontalStackLayout>
+                        <HorizontalStackLayout>
+                            <Label Text="Health Care?" FontFamily="PoppinsRegular" FontSize="12" TextColor="#737B8B" />
+                            <CheckBox IsChecked="{Binding UserObject.IsEnrolledInHealthCare}" />
+                        </HorizontalStackLayout>
+                        <HorizontalStackLayout>
+                            <Label Text="Health Savings Account?" FontFamily="PoppinsRegular" FontSize="12" TextColor="#737B8B" />
+                            <CheckBox IsChecked="{Binding UserObject.IsEnrolledInHSA}" />
+                        </HorizontalStackLayout>
+                    </FlexLayout>
+
+
+                    <Label Grid.Row="6" Text="Still Employed?" FontFamily="PoppinsRegular" FontSize="12" TextColor="#737B8B" />
+                    <Switch Grid.Row="6" Grid.Column="1" IsToggled="{Binding UserObject.IsActive}" />
+
+                    <Label Text="Employee Type" Grid.Row="7" FontFamily="PoppinsRegular" FontSize="12" TextColor="#737B8B" />
+                    <FlexLayout Grid.Row="7" Grid.Column="1" Wrap="Wrap" Direction="Row">
+                        <HorizontalStackLayout>
+                            <Label Text="Full-Time" FontFamily="PoppinsRegular" FontSize="12" TextColor="#737B8B" />
+                            <RadioButton x:Name="FullTime" IsChecked="{Binding UserObject.IsFullTime}" GroupName="EmployeeType" />
+                        </HorizontalStackLayout>
+                        <HorizontalStackLayout>
+                            <Label Text="Part-Time" FontFamily="PoppinsRegular" FontSize="12" TextColor="#737B8B" />
+                            <RadioButton IsChecked="{Binding UserObject.IsFullTime, Converter={StaticResource invertedBoolean}}" GroupName="EmployeeType" />
+                        </HorizontalStackLayout>
+                    </FlexLayout>
+
+                    <!-- Other fields like Birth Date, Start Time, Phone etc., can follow the same format -->
+
+                    <HorizontalStackLayout Grid.Row="12" Grid.Column="1">
+                        <Button Text="Save" Command="{Binding SaveCommand}" />
+                        <Button Text="Cancel" />
+                    </HorizontalStackLayout>
+                </Grid>
+            </ScrollView>
+        </Frame>
+
+
+    </Grid>
+    
+    
+</ContentPage>

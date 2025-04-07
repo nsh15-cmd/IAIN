@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+xmlns:inputs="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
+             xmlns:charts="clr-namespace:Syncfusion.Maui.Charts;assembly=Syncfusion.Maui.Charts"
+             xmlns:progressBar="clr-namespace:Syncfusion.Maui.ProgressBar;assembly=Syncfusion.Maui.ProgressBar"
+             xmlns:sync="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="iainjobseeker.Views.JobSeeker.JbDashboardPage"
+             WidthRequest="1920"
+             HeightRequest="1080"
+             BackgroundColor="White">
+
+    <Grid ColumnDefinitions="Auto, Auto, *, Auto, Auto" RowDefinitions="Auto, *, Auto">
+
+        <VerticalStackLayout Background="{DynamicResource backgroundSidebar}" 
+                             WidthRequest="242" 
+                             HeightRequest="1080" 
+                             Grid.Column="0" 
+                             Grid.RowSpan="2">
+            <HorizontalStackLayout>
+                <Button Text="☰" FontSize="18"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Start"
+                        BackgroundColor="Transparent"
+                        TextColor="#707FDD"
+                        Margin="5"/>
+                <Image Source="iain.png" Grid.Column="1" HeightRequest="70" WidthRequest="70" Margin="30,0,0,0"/>
+            </HorizontalStackLayout>
+            <Label></Label>
+            <Grid>
+                <Label Text="MENU" Style="{StaticResource sidebarLabelStyle}" Grid.Column="3" VerticalOptions="Center" Margin="50,30,0,0"></Label>
+            </Grid>
+            
+            <!--Sidebar items-->
+            <Grid ColumnDefinitions="Auto, Auto"
+              HeightRequest="50"
+              VerticalOptions="Center">
+                <Image Source="dashboard.png"
+                   HeightRequest="35"
+                   WidthRequest="35"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Start"
+                   Margin="43,0,0,0" />
+                <Label Text="Home"
+                   Grid.Column="1"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Start"
+                   Style="{StaticResource sidebarLabelStyle}"/>
+            </Grid>
+
+            <Grid ColumnDefinitions="Auto, Auto"
+             HeightRequest="50" Margin="0,0,0,0"
+            VerticalOptions="Center">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnAiInterviewPrepTapped"/>
+                </Grid.GestureRecognizers>
+
+                <Image Source="aiprep.png"
+                   HeightRequest="33"
+                   WidthRequest="33"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Start"
+                   Margin="43,0,0,0" />
+
+                <Label Text="Ai Interview Prep"
+           Grid.Column="1"
+           VerticalOptions="Center"
+           HorizontalOptions="Start"
+           Margin="2,0,0,0"
+           Style="{StaticResource sidebarLabelStyle}"/>
+            </Grid>
+
+
+            <Grid ColumnDefinitions="Auto, Auto"
+              HeightRequest="50" Margin="0,0,0,0"
+              VerticalOptions="Center">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnSavedJobsTapped"/>
+                </Grid.GestureRecognizers>
+                <Image Source="savejobs.png"
+                   HeightRequest="35"
+                   WidthRequest="35"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Start"
+                   Margin="43,0,0,0" />
+                <Label Text="Saved Jobs"
+                   Grid.Column="1"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Start"
+                   Style="{StaticResource sidebarLabelStyle}"/>
+            </Grid>
+
+            <Grid ColumnDefinitions="Auto, Auto"
+              HeightRequest="50" Margin="0,0,0,0"
+              VerticalOptions="Center">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnMessagesTapped"/>
+                </Grid.GestureRecognizers>
+                <Image Source="messages.png"
+                   HeightRequest="30"
+                   WidthRequest="30"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Start"
+                   Margin="46,0,0,0" />
+                <Label Text="Messages"
+                   Grid.Column="1"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Start"
+                       Margin="3,0,0,0"
+                   Style="{StaticResource sidebarLabelStyle}"/>
+            </Grid>
+
+            <Grid>
+                <Label Text="OTHERS" Style="{StaticResource sidebarLabelStyle}" Grid.Column="3" VerticalOptions="Center" Margin="50,30,0,0"></Label>
+            </Grid>
+
+            <Grid ColumnDefinitions="Auto, Auto"
+              HeightRequest="50" Margin="0,0,0,0"
+              VerticalOptions="Center">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnSettingsTapped"/>
+                </Grid.GestureRecognizers>
+                <Image Source="settings.png"
+                   HeightRequest="35"
+                   WidthRequest="35"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Start"
+                   Margin="43,0,0,0" />
+                <Label Text="Settings"
+                   Grid.Column="1"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Start"
+                   Style="{StaticResource sidebarLabelStyle}"/>
+            </Grid>
+
+            <Grid ColumnDefinitions="Auto, Auto"
+              HeightRequest="50" Margin="0,0,0,0"
+              VerticalOptions="Center">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnAccountsTapped"/>
+                </Grid.GestureRecognizers>
+                <Image Source="accounts.png"
+                   HeightRequest="30"
+                   WidthRequest="30"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Start"
+                   Margin="44,0,0,0" />
+                <Label Text="Accounts"
+                   Grid.Column="1"
+                   VerticalOptions="Center"
+                   Margin="3,0,0,0" 
+                   HorizontalOptions="Start"
+                   Style="{StaticResource sidebarLabelStyle}"/>
+            </Grid>
+
+            <Grid ColumnDefinitions="Auto, Auto"
+              HeightRequest="50" Margin="0,0,0,0"
+              VerticalOptions="Center">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnHelpsTapped"/>
+                </Grid.GestureRecognizers>
+                <Image Source="help.png"
+                   HeightRequest="35"
+                   WidthRequest="35"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Start"
+                   Margin="42,0,0,0"/>
+                <Label Text="Help"
+                   Grid.Column="1"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Start"
+                   Style="{StaticResource sidebarLabelStyle}"/>
+            </Grid>
+        </VerticalStackLayout>
+
+        <!--ProfileSection-->
+        <HorizontalStackLayout  Grid.Column="1" Margin="30,0,0,0" Grid.Row="0" Spacing="8" 
+                         VerticalOptions="Center" 
+                         HorizontalOptions="Center">
+            <Image Source="profile.png"  
+                WidthRequest="30" 
+                HeightRequest="30" 
+                HorizontalOptions="Center">
+            </Image>
+            <Label Text="Mr. Kupido"
+                FontFamily="PoppinsRegular"
+                FontSize="14"
+                VerticalOptions="Center"
+                TextColor="#707FDD" Margin="0,0,300,0" />
+
+            <!--SearchSection-->
+            <Frame  BackgroundColor="#F6F6FB"
+        Grid.Column="2"
+        Grid.Row="0"
+        WidthRequest="300"
+        HeightRequest="45"
+        BorderColor="Transparent"
+        CornerRadius="10"
+        Padding="0"
+        HasShadow="False"
+        VerticalOptions="Center"
+        HorizontalOptions="End"
+         Margin="750,0,15,0">
+
+                <Grid ColumnDefinitions="*, Auto"
+   VerticalOptions="Center"
+   Padding="10,0" Grid.Row="0">
+                    <Entry x:Name="SearchEntry"
+             Placeholder="Search here"
+             BackgroundColor="Transparent"
+             VerticalOptions="Center"
+             Style="{StaticResource infoLabelStyle}" />
+
+                    <ImageButton Source="magnifying.png"
+      WidthRequest="24"
+      HeightRequest="24"
+      BackgroundColor="Transparent"
+      HorizontalOptions="Center"
+      Margin="240,0,0,0"
+      VerticalOptions="Center"
+      Aspect="AspectFit"/>
+
+                </Grid>
+            </Frame>
+
+            <HorizontalStackLayout Grid.Column="3"
+                        Grid.Row="0"
+                        Padding="0"
+                        Spacing="10"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        Margin="30,0,20,0">
+
+                <Button Text="–"
+     FontSize="20"
+     WidthRequest="40"
+     HeightRequest="40"
+     Clicked="OnMinimizeClicked"
+     BackgroundColor="Transparent"
+     TextColor="{DynamicResource button}"
+     CornerRadius="0" />
+
+                <Button Text="✕"
+     FontSize="15"
+     WidthRequest="40"
+     HeightRequest="40"
+     Clicked="OnCloseClicked"
+     BackgroundColor="Transparent"
+     TextColor="{DynamicResource button}"
+     CornerRadius="0" />
+
+            </HorizontalStackLayout>
+        </HorizontalStackLayout>
+
+        <BoxView Grid.Row="0"
+                 Grid.ColumnSpan="5"
+                 HeightRequest="0.5"
+                 Color="#CCCCCC"
+                 HorizontalOptions="FillAndExpand"
+                 Margin="0,65,0,0" />
+
+        <!-- Job Offers Frame -->
+
+        <Frame Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="1" VerticalOptions="Center" 
+       HorizontalOptions="Start" HeightRequest="470"
+       BackgroundColor="White" WidthRequest="800" Margin="80,0,0,500"
+       BorderColor="{DynamicResource backgroundSidebar}"
+       CornerRadius="10">
+
+            <HorizontalStackLayout Padding="5,5" VerticalOptions="Start" HorizontalOptions="StartAndExpand">
+                <VerticalStackLayout HorizontalOptions="Start" Margin="10,10" >
+                    <Label Text="Job Interview" FontSize="14" FontFamily="PoppinsRegular" TextColor="Black" />
+                    <Label Text="Job Offers" FontSize="20" FontFamily="PoppinsMedium" TextColor="Black" />
+                </VerticalStackLayout>
+
+                <Border Stroke="#DDE4F0" BackgroundColor="White" Margin="500,0,0,90"
+                        StrokeThickness="1" HorizontalOptions="End" StrokeShape="RoundRectangle 5" HeightRequest="40" VerticalOptions="Start">
+                    <Border.Shadow>
+                        <Shadow Brush="#0D404852" Offset="0,4" Radius="10" Opacity="0.3" />
+                    </Border.Shadow>
+                    <Grid Padding="16,8">
+                        <Label Text="Insert Resume" Style="{StaticResource infoLabelStyle}">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnInsertResumeTapped"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </Grid>
+                </Border>
+
+                <!--Button laout for job offers-->
+
+                <VerticalStackLayout Padding="10,5" 
+                            VerticalOptions="End" HorizontalOptions="Center" Margin="-760,60,0,-20">
+
+                    <Frame BorderColor="White"
+                   BackgroundColor="White"
+                   HasShadow="True"
+                   Padding="10"
+                   WidthRequest="650"
+                   CornerRadius="10"
+                   HeightRequest="100">
+
+
+                        <HorizontalStackLayout WidthRequest="650" Padding="10,5" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                            <Image Source="pin.png" HeightRequest="12" Aspect="AspectFill" HorizontalOptions="Start" Margin="0,0,20,0"></Image>
+                            <Image Source="pic.png" 
+                                    HeightRequest="40" 
+                                    WidthRequest="40" 
+                                    HorizontalOptions="End" 
+                                    VerticalOptions="Center"/>
+
+                            <StackLayout VerticalOptions="Center" Padding="10,0,0,0">
+                                <Label Text="Sales Validators" 
+            FontFamily="Poppins-Regular" 
+            FontSize="16" 
+            TextColor="Black" 
+            HorizontalOptions="Start" 
+            VerticalOptions="Center"/>
+                                <Label Text="ENZalda Inc." 
+            FontFamily="Poppins-Regular" 
+            FontSize="12" 
+            TextColor="Gray" 
+            HorizontalOptions="Start" 
+            VerticalOptions="Center"/>
+                            </StackLayout>
+                        </HorizontalStackLayout>
+                    </Frame>
+                    <BoxView Color="Black" 
+             Opacity="0.1" 
+             WidthRequest="670" 
+             HeightRequest="1" 
+             VerticalOptions="CenterAndExpand"
+            HorizontalOptions="StartAndExpand"
+             Margin="20,0,0,0"
+             />
+
+                    <!--Button startInterview-->
+
+                    <StackLayout VerticalOptions="Center" HorizontalOptions="Center" Padding="10">
+
+                        <Button Padding="10"
+               HeightRequest="52"
+               WidthRequest="234"
+               BackgroundColor="#707FDD"
+               CornerRadius="10"
+               Margin="460,170, 0,50" Text="Start Interview" 
+               TextColor="White" 
+               VerticalOptions="Center" 
+               FontFamily="PoppinsMedium" 
+               FontSize="16" >
+
+                        </Button>
+                        <Image Source="employeee.png" 
+           HeightRequest="120" 
+           WidthRequest="120" 
+           VerticalOptions="Center" 
+           HorizontalOptions="Center" 
+           Margin="210,-158,0,0"/>
+
+                    </StackLayout>
+                </VerticalStackLayout>
+
+            </HorizontalStackLayout>
+        </Frame>
+
+
+
+        <!--Profile Insights-->
+        <Frame Grid.ColumnSpan="1"  Grid.Column="1" Grid.Row="1" VerticalOptions="Center" 
+                HorizontalOptions="End" 
+                HeightRequest="470"
+                BackgroundColor="White" 
+                WidthRequest="600" Margin="0,0,170,500"
+                BorderColor="{DynamicResource backgroundSidebar}"
+                CornerRadius="10" 
+                >
+
+            <Frame Grid.Column="1" Grid.Row="1" VerticalOptions="Center" HorizontalOptions="Start" BackgroundColor="White" 
+               BorderColor="White" >
+                <HorizontalStackLayout >
+                    <VerticalStackLayout Margin="0,0,280,300">
+                        <Label Text="Profile Insights" 
+                           FontSize="14" 
+                           FontFamily="PoppinsRegular" 
+                           TextColor="Black" />
+                        <HorizontalStackLayout Spacing="5">
+                            <Label Text="Select Date: " TextColor="Gray" FontFamily="PoppinsRegular"></Label>
+                            
+                            <DatePicker FontFamily="PoppinsRegular" TextColor="Gray" MinimumDate="01/01/2025"
+                    MaximumDate="12/31/2025"
+                    Date="04/5/2025" HeightRequest="44" />
+                        </HorizontalStackLayout>
+
+
+
+ 
+
+                    </VerticalStackLayout>
+
+                    <StackLayout Padding="20">
+                        <charts:SfCircularChart HeightRequest="300" Margin="-400,50,0,0" >
+
+                            <charts:SfCircularChart.Legend>
+                                <charts:ChartLegend Placement="Bottom" />
+                            </charts:SfCircularChart.Legend>
+
+                            <charts:PieSeries ItemsSource="{Binding Data}" 
+                          XBindingPath="XValue" 
+                          YBindingPath="YValue">
+                            </charts:PieSeries>
+                        </charts:SfCircularChart>
+                    </StackLayout>
+
+
+                </HorizontalStackLayout>
+            </Frame>
+        </Frame>
+
+        <Frame BackgroundColor="White" BorderColor="{DynamicResource backgroundSidebar}" 
+                HeightRequest="450" WidthRequest="450"  Grid.Column="1" Grid.Row="1"  Margin="80,450,0,0" HorizontalOptions="Start" >
+
+            <HorizontalStackLayout Padding="5">
+                <Label Text="All Interviews" 
+                           FontSize="14" 
+                           FontFamily="PoppinsRegular" 
+                           TextColor="Black" Padding="10" />
+                <Image Source="intervieww.png" 
+                       WidthRequest="250" 
+                       HeightRequest="250" 
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       Margin="-40"/>
+                
+                <Label Text="You have no Interviews" 
+                           FontSize="14" 
+                           FontFamily="PoppinsRegular" 
+                           TextColor="Gray"
+                       HorizontalOptions="Center"
+                       VerticalOptions="End" Margin="-160,0,0,70"/>
+            </HorizontalStackLayout>
+
+
+        </Frame>
+
+        <Frame BackgroundColor="White" BorderColor="{DynamicResource backgroundSidebar}" HorizontalOptions="Center"
+                HeightRequest="450" WidthRequest="450"  Grid.Column="1" Grid.Row="1"  Margin="-120,450,0,0" >
+
+            <HorizontalStackLayout Padding="5">
+                <Label Text="Upcoming Interview" 
+                           FontSize="14" 
+                           FontFamily="PoppinsRegular" 
+                           TextColor="Black" Padding="10"
+                       />
+
+
+            </HorizontalStackLayout>
+
+        </Frame>
+        
+        <Frame BackgroundColor="White" 
+               BorderColor="{DynamicResource backgroundSidebar}" 
+               HorizontalOptions="Start"
+               HeightRequest="450" 
+               WidthRequest="450" 
+               Grid.ColumnSpan="2"  
+               Grid.Column="2" 
+               Grid.Row="1"  
+               Margin="-650,450,0,0">
+
+            <VerticalStackLayout Padding="10">
+                <Label Text="AI Interview Performance" 
+               FontSize="14" 
+               FontFamily="PoppinsRegular" 
+               TextColor="Black" Margin="0,0,0,50" />
+
+                <HorizontalStackLayout Spacing="46">
+                    <Label Text="Ai Interview Score" 
+                           FontSize="14" 
+                           FontFamily="PoppinsRegular" 
+                           TextColor="Gray" />
+
+                    <inputs:SfRating Value="3" 
+                     HeightRequest="30"  ItemSize="20">
+                        <inputs:SfRating.RatingSettings>
+                            <inputs:RatingSettings RatedFill="Gold">
+                            </inputs:RatingSettings>
+
+                        </inputs:SfRating.RatingSettings>
+                    </inputs:SfRating>
+                </HorizontalStackLayout>
+                <Label></Label>
+                <Label></Label>
+
+                <HorizontalStackLayout Spacing="69">
+                    <Label Text="Resume Score" 
+                           FontSize="14" 
+                           FontFamily="PoppinsRegular" 
+                           TextColor="Gray" />
+
+                    <inputs:SfRating Value="3" 
+                     HeightRequest="30"  ItemSize="20">
+                        <inputs:SfRating.RatingSettings>
+                            <inputs:RatingSettings RatedFill="Gold">
+                            </inputs:RatingSettings>
+
+                        </inputs:SfRating.RatingSettings>
+                    </inputs:SfRating>
+                </HorizontalStackLayout>
+                <Label></Label>
+                <Label></Label>
+
+
+                <HorizontalStackLayout Spacing="20">
+                    <Label Text="Profile Completeness" 
+                           FontSize="14" 
+                           FontFamily="PoppinsRegular" 
+                           TextColor="Gray" />
+
+                    <inputs:SfRating Value="2" 
+                     HeightRequest="30"  ItemSize="20">
+                        <inputs:SfRating.RatingSettings>
+                            <inputs:RatingSettings RatedFill="Gold">
+                            </inputs:RatingSettings>
+
+                        </inputs:SfRating.RatingSettings>
+                    </inputs:SfRating>
+                </HorizontalStackLayout>
+
+
+            </VerticalStackLayout>
+
+        </Frame>
+
+
+
+
+    </Grid>
+
+</ContentPage>

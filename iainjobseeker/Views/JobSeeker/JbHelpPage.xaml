@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="iainjobseeker.Views.JobSeeker.JbHelpPage"
+             WidthRequest="1920"
+             HeightRequest="1080"
+             BackgroundColor="White">
+
+    <Grid ColumnDefinitions="Auto, Auto, *, Auto, Auto" RowDefinitions="Auto, *, Auto, Auto">
+
+        <VerticalStackLayout Background="{DynamicResource backgroundSidebar}" 
+                             WidthRequest="242" 
+                             HeightRequest="1080" 
+                             Grid.Column="0" 
+                             Grid.RowSpan="2" Margin="0,0,0,0">
+            <HorizontalStackLayout>
+                <Button Text="☰" FontSize="18"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Start"
+                        BackgroundColor="Transparent"
+                        TextColor="#707FDD"
+                        Margin="5"/>
+                <Image Source="iain.png" Grid.Column="1" HeightRequest="70" WidthRequest="70" Margin="30,0,0,0"/>
+            </HorizontalStackLayout>
+            <Label></Label>
+            <Grid>
+                <Label Text="MENU" Style="{StaticResource sidebarLabelStyle}" Grid.Column="3" VerticalOptions="Center" Margin="50,30,0,0"></Label>
+            </Grid>
+
+            <!--sidebar items-->
+            <Grid ColumnDefinitions="Auto, Auto"
+              HeightRequest="50"
+              VerticalOptions="Center">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnDashboardTapped"/>
+                </Grid.GestureRecognizers>
+                <Image Source="dashboard.png"
+                   HeightRequest="35"
+                   WidthRequest="35"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Start"
+                   Margin="43,0,0,0" />
+                <Label Text="Home"
+                   Grid.Column="1"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Start"
+                   Style="{StaticResource sidebarLabelStyle}"/>
+            </Grid>
+
+            <Grid ColumnDefinitions="Auto, Auto"
+              HeightRequest="50" Margin="0,0,0,0"
+              VerticalOptions="Center">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnAiInterviewPrepTapped"/>
+                </Grid.GestureRecognizers>
+                <Image Source="aiprep.png"
+                   HeightRequest="33"
+                   WidthRequest="33"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Start"
+                   Margin="43,0,0,0" />
+                <Label Text="Ai Interview Prep"
+                   Grid.Column="1"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Start"
+                       Margin="2,0,0,0"
+                   Style="{StaticResource sidebarLabelStyle}"/>
+            </Grid>
+
+            <Grid ColumnDefinitions="Auto, Auto"
+              HeightRequest="50" Margin="0,0,0,0"
+              VerticalOptions="Center">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnSavedJobsTapped"/>
+                </Grid.GestureRecognizers>
+                <Image Source="savejobs.png"
+                   HeightRequest="35"
+                   WidthRequest="35"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Start"
+                   Margin="43,0,0,0" />
+                <Label Text="Saved Jobs"
+                   Grid.Column="1"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Start"
+                   Style="{StaticResource sidebarLabelStyle}"/>
+            </Grid>
+
+            <Grid ColumnDefinitions="Auto, Auto"
+              HeightRequest="50" Margin="0,0,0,0"
+              VerticalOptions="Center">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnMessagesTapped"/>
+                </Grid.GestureRecognizers>
+                <Image Source="messages.png"
+                   HeightRequest="30"
+                   WidthRequest="30"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Start"
+                   Margin="46,0,0,0" />
+                <Label Text="Messages"
+                   Grid.Column="1"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Start"
+                       Margin="3,0,0,0"
+                   Style="{StaticResource sidebarLabelStyle}"/>
+            </Grid>
+
+            <Grid>
+                <Label Text="OTHERS" Style="{StaticResource sidebarLabelStyle}" Grid.Column="3" VerticalOptions="Center" Margin="50,30,0,0"></Label>
+            </Grid>
+
+            <Grid ColumnDefinitions="Auto, Auto"
+              HeightRequest="50" Margin="0,0,0,0"
+              VerticalOptions="Center">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnSettingsTapped"/>
+                </Grid.GestureRecognizers>
+                <Image Source="settings.png"
+                   HeightRequest="35"
+                   WidthRequest="35"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Start"
+                   Margin="43,0,0,0" />
+                <Label Text="Settings"
+                   Grid.Column="1"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Start"
+                   Style="{StaticResource sidebarLabelStyle}"/>
+            </Grid>
+
+            <Grid ColumnDefinitions="Auto, Auto"
+              HeightRequest="50" Margin="0,0,0,0"
+              VerticalOptions="Center">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnAccountsTapped"/>
+                </Grid.GestureRecognizers>
+                <Image Source="accounts.png"
+                   HeightRequest="30"
+                   WidthRequest="30"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Start"
+                   Margin="44,0,0,0" />
+                <Label Text="Accounts"
+                   Grid.Column="1"
+                   VerticalOptions="Center"
+                   Margin="3,0,0,0" 
+                   HorizontalOptions="Start"
+                   Style="{StaticResource sidebarLabelStyle}"/>
+            </Grid>
+
+            <Grid ColumnDefinitions="Auto, Auto"
+              HeightRequest="50" Margin="0,0,0,0"
+              VerticalOptions="Center">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnHelpsTapped"/>
+                </Grid.GestureRecognizers>
+                <Image Source="help.png"
+                   HeightRequest="35"
+                   WidthRequest="35"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Start"
+                   Margin="42,0,0,0"/>
+                <Label Text="Help"
+                   Grid.Column="1"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Start"
+                   Style="{StaticResource sidebarLabelStyle}"/>
+            </Grid>
+        </VerticalStackLayout>
+
+        <!--ProfileSection-->
+        <HorizontalStackLayout  Grid.Column="1" Margin="30,0,0,0" Grid.Row="0" Spacing="8" 
+                                VerticalOptions="Center" 
+                                HorizontalOptions="Center">
+            <Image Source="profile.png"  
+                       WidthRequest="30" 
+                       HeightRequest="30" 
+                       HorizontalOptions="Center">
+            </Image>
+            <Label Text="Mr. Kupido"
+                       FontFamily="PoppinsRegular"
+                       FontSize="14"
+                       VerticalOptions="Center"
+                       TextColor="#707FDD" Margin="0,0,300,0" />
+
+        <!--SearchSection-->
+        <Frame  BackgroundColor="#F6F6FB"
+               Grid.Column="2"
+               Grid.Row="0"
+               WidthRequest="300"
+               HeightRequest="45"
+               BorderColor="Transparent"
+               CornerRadius="10"
+               Padding="0"
+               HasShadow="False"
+               VerticalOptions="Center"
+               HorizontalOptions="End"
+                Margin="750,0,15,0">
+
+            <Grid ColumnDefinitions="*, Auto"
+          VerticalOptions="Center"
+          Padding="10,0" Grid.Row="0">
+                <Entry x:Name="SearchEntry"
+                    Placeholder="Search here"
+                    BackgroundColor="Transparent"
+                    VerticalOptions="Center"
+                    Style="{StaticResource infoLabelStyle}" />
+
+                <ImageButton Source="magnifying.png"
+             WidthRequest="24"
+             HeightRequest="24"
+             BackgroundColor="Transparent"
+             HorizontalOptions="Center"
+             Margin="240,0,0,0"
+             VerticalOptions="Center"
+             Aspect="AspectFit"/>
+
+            </Grid>
+        </Frame>
+
+            <HorizontalStackLayout Grid.Column="3"
+                               Grid.Row="0"
+                               Padding="0"
+                               Spacing="10"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center"
+                               Margin="30,0,20,0">
+
+                <Button Text="–"
+            FontSize="20"
+            WidthRequest="40"
+            HeightRequest="40"
+            Clicked="OnMinimizeClicked"
+            BackgroundColor="Transparent"
+            TextColor="{DynamicResource button}"
+            CornerRadius="0" />
+
+                <Button Text="✕"
+            FontSize="15"
+            WidthRequest="40"
+            HeightRequest="40"
+            Clicked="OnCloseClicked"
+            BackgroundColor="Transparent"
+            TextColor="{DynamicResource button}"
+            CornerRadius="0" />
+
+            </HorizontalStackLayout>
+        </HorizontalStackLayout>
+        
+
+
+
+
+        <BoxView Grid.Row="0"
+                 Grid.ColumnSpan="5"
+                 HeightRequest="0.5"
+                 Color="#CCCCCC"
+                 HorizontalOptions="FillAndExpand"
+                 Margin="0,65,0,0" />
+
+        <ScrollView Grid.ColumnSpan="2" Grid.Row="1" Grid.Column="1" Margin="0,0,0,0">
+            <VerticalStackLayout Padding="40" Spacing="10">
+
+                <!-- Page Title -->
+                <Label Text="Help"
+                   Style="{StaticResource headerlineLabelStyle}" />
+
+                <!-- FAQs Section -->
+                <Label Text="FAQs (Common Questions)"
+                       Style="{StaticResource baseLabelStyle}"
+                   />
+                
+                <Label Text="Q: How does the AI interview work?"
+               Style="{StaticResource headlineLabelStyle}" />
+                <Label Text="The AI asks job-related questions, and you can respond via video and voice. The system analyzes your answers and gives feedback."
+               Style="{StaticResource Text}" />
+
+                <Label Text="Q: Can I retake AI interviews?"
+               Style="{StaticResource headlineLabelStyle}" />
+                <Label Text="No, practice AI Interview in AI Interview prep."
+               Style="{StaticResource Text}" />
+
+                <Label Text="Q: How do I improve my AI interview score?"
+               Style="{StaticResource headlineLabelStyle}" />
+                <Label Text="Speak clearly, avoid filler words, and structure answers using the STAR method (Situation, Task, Action, Result)."
+               Style="{StaticResource Text}" />
+
+                <Label Text="Q: Are my interviews recorded?"
+               Style="{StaticResource headlineLabelStyle}" />
+                <Label Text="Yes, AI interviews are  recorded. Performance insights are stored for your progress tracking."
+               Style="{StaticResource Text}" />
+
+                <!-- Facts -->
+                <Label Text="Facts"
+                       Style="{StaticResource baseLabelStyle}" />
+
+                <Label Text="1. Instant Feedback" 
+                   Style="{StaticResource headlineLabelStyle}" />
+                <Label Text="The AI provides instant feedback after each answer, helping you improve your responses." 
+                   Style="{StaticResource Text}" />
+
+                <Label Text="2. Adaptable Interview Types" 
+                   Style="{StaticResource headlineLabelStyle}" />
+                <Label Text="Choose between general, technical, and behavioral interviews based on your needs." 
+                   Style="{StaticResource Text}" />
+
+                <Label Text="3. Progress Tracking" 
+                   Style="{StaticResource headlineLabelStyle}" />
+                <Label Text="Your progress is tracked, so you can see your improvements over time and identify areas for growth." 
+                   Style="{StaticResource Text}" />
+
+                <Label Text="4. Custom Questions" 
+                   Style="{StaticResource headlineLabelStyle}" />
+                <Label Text="You can add your own questions to the interview process to tailor the experience to your needs." 
+                   Style="{StaticResource Text}" />
+
+                <!-- How to Use Section -->
+                <Label Text="How to Use AI Interview? (Step-by-Step Guide)"
+                          Style="{StaticResource baseLabelStyle}" />
+
+                <Label Text="1 Set Up Your Profile – Fill in your details &amp; upload your resume."
+               Style="{StaticResource Text}" />
+                <Label Text="2 Choose Your Interview type – Pick a general, technical, or behavioral interview."
+               Style="{StaticResource Text}" />
+                <Label Text="3 Wait till the Hr or Admin will scheduled your AI Interview"
+               Style="{StaticResource Text}" />
+                <Label Text="4 When scheduled it will appear in your dashh board - Start your Interview"
+               Style="{StaticResource Text}" />
+                <Label Text="5 Get Instant Feedback – AI analyzes your responses and suggests improvements."
+               Style="{StaticResource Text}" />
+
+                <!-- Contact Support Section -->
+                <Label Text="Contact Support"
+                       Style="{StaticResource baseLabelStyle}"/>
+
+                <HorizontalStackLayout Spacing="10">
+                    <Image Source="email.png" WidthRequest="20" HeightRequest="20" />
+                    <Label Text="Email: support@iainapp.com" Style="{StaticResource Text}" />
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout Spacing="10">
+                    <Image Source="phone.png" WidthRequest="20" HeightRequest="20" />
+                    <Label Text="Phone: +1 (800) 123-4567" Style="{StaticResource Text}" />
+                </HorizontalStackLayout>
+
+            </VerticalStackLayout>
+        </ScrollView>
+        
+    </Grid>
+</ContentPage>
