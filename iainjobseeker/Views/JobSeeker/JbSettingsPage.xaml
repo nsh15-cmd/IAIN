@@ -254,5 +254,142 @@
                  Color="#CCCCCC"
                  HorizontalOptions="FillAndExpand"
                  Margin="0,65,0,0" />
-        </Grid>
+
+        <Label Text="Settings" 
+                   HorizontalOptions="Center" 
+                   VerticalOptions="Center" Style="{StaticResource headerlineLabelStyle}" 
+                   Margin="0,0,0,900" FontSize="25"
+                   Grid.Column="1" Grid.Row="1"/>
+
+
+        <Frame Grid.Column="1" Grid.Row="1" Background="#FBFCFE" BorderColor="#DDE4F0" WidthRequest="1180" HeightRequest="600" Margin="0,0,0,200">
+            <ScrollView>
+
+
+                <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto"
+       ColumnDefinitions="Auto,Auto,Auto,*" ColumnSpacing="20" RowSpacing="10">
+
+
+                    <FlexLayout Grid.Row="1" Grid.Column="0">
+                        <VerticalStackLayout >
+                            <Label Text="Security &amp; Privacy" Style="{DynamicResource infoLabelStyle}"
+                 VerticalOptions="Start" HorizontalOptions="Start" FontSize="18"/>
+                            <Label Text="Notification Preferences" Style="{DynamicResource Name}"
+                 VerticalOptions="End" HorizontalOptions="Center"  FontSize="16" Margin="50,0,0,0"/>
+                        </VerticalStackLayout>
+                        
+
+                    </FlexLayout>
+                    
+                    <VerticalStackLayout Grid.Row="2">
+                        <HorizontalStackLayout Spacing="5" WidthRequest="180" HorizontalOptions="Start" Margin="113,0,0,0" >
+                            <Label Text="AI Interview Reminders" 
+                                        FontFamily="PoppinsRegular" 
+                                        FontSize="12" 
+                                        TextColor="#737B8B" 
+                                        HorizontalOptions="Start" 
+                                        VerticalOptions="Center" />
+                            <CheckBox x:Name="Notifications" 
+                               HorizontalOptions="End" 
+                               VerticalOptions="Center" />
+                        </HorizontalStackLayout>
+
+
+                        <HorizontalStackLayout Spacing="5" WidthRequest="180" HorizontalOptions="Start" Margin="113,0,0,0">
+                            <Label Text="Job Updates" 
+                                        FontFamily="PoppinsRegular" 
+                                        FontSize="12" 
+                                        TextColor="#737B8B" 
+                                        HorizontalOptions="Start" 
+                                        VerticalOptions="Center" />
+                            <CheckBox x:Name="Terms" 
+                               HorizontalOptions="End" 
+                               VerticalOptions="Center" Margin="60,0,0,0"/>
+                        </HorizontalStackLayout>
+
+                    </VerticalStackLayout>
+
+
+
+
+                    <FlexLayout Grid.Row="4" Grid.Column="0" Wrap="Wrap" Direction="Row">
+                        <VerticalStackLayout >
+                            <Label Text="Security &amp; Privacy" Style="{DynamicResource infoLabelStyle}"
+                 VerticalOptions="Start" HorizontalOptions="Start" FontSize="18"/>
+                            <Label Text="Change Password" Style="{DynamicResource Name}"
+                 VerticalOptions="End" HorizontalOptions="Center"  FontSize="16" Margin="50,0,0,0"/>
+                        </VerticalStackLayout>
+
+                        
+                        <HorizontalStackLayout Spacing="64" VerticalOptions="Start" Margin="0,0,0,0" >
+                            <Label Grid.Row="0" Text="Old Password" FontFamily="PoppinsRegular" FontSize="14" TextColor="#737B8B" VerticalOptions="Center"/>
+                            <Frame Background="#F5F7FA" BorderColor="#DDE4F0" HeightRequest="50" Padding="0,0,0,0" WidthRequest="500" MinimumWidthRequest="500"
+                        HorizontalOptions="Center">
+                                <Entry 
+                                MinimumHeightRequest="30" MinimumWidthRequest="500"
+                                Text="{Binding UserObject.LastName}" TextColor="#737B8B" />
+                            </Frame>
+                        </HorizontalStackLayout>
+
+                        <HorizontalStackLayout Spacing="57" VerticalOptions="Start" Margin="0,0,0,10" >
+                            <Label Grid.Row="0" Text="New Password" FontFamily="PoppinsRegular" FontSize="14" TextColor="#737B8B" VerticalOptions="Center"/>
+                            <Frame Background="#F5F7FA" BorderColor="#DDE4F0" HeightRequest="50" Padding="0,0,0,0" WidthRequest="500" MinimumWidthRequest="500"
+                        HorizontalOptions="Center">
+                                <Entry 
+                                MinimumHeightRequest="30" MinimumWidthRequest="500"
+                                Text="{Binding UserObject.LastName}" TextColor="#737B8B" />
+                            </Frame>
+                        </HorizontalStackLayout>
+
+                        <HorizontalStackLayout Spacing="30" VerticalOptions="Start" Margin="0,0,0,10" >
+                            <Label Grid.Row="0" Text="Re-write Password" FontFamily="PoppinsRegular" FontSize="14" TextColor="#737B8B" VerticalOptions="Center"/>
+                            <Frame Background="#F5F7FA" BorderColor="#DDE4F0" HeightRequest="50" Padding="0,0,0,0" WidthRequest="500" MinimumWidthRequest="500"
+                        HorizontalOptions="Center">
+                                <Entry 
+                                MinimumHeightRequest="30" MinimumWidthRequest="500"
+                                Text="{Binding UserObject.LastName}" TextColor="#737B8B" />
+                            </Frame>
+                        </HorizontalStackLayout>
+
+
+                    </FlexLayout>
+
+                    <HorizontalStackLayout Grid.Row="9" Grid.Column="3" Spacing="10" HorizontalOptions="End" Margin="0,0,50,0">
+                        <Border Stroke="#DDE4F0" BackgroundColor="White" 
+                 StrokeThickness="1" HorizontalOptions="End" StrokeShape="RoundRectangle 5" HeightRequest="40" VerticalOptions="Start">
+                            <Border.Shadow>
+                                <Shadow Brush="#0D404852" Offset="0,4" Radius="10" Opacity="0.3" />
+                            </Border.Shadow>
+                            <Grid Padding="16,8">
+                                <Label Text="Saved Canges" Style="{StaticResource infoLabelStyle}">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </Grid>
+                        </Border>
+
+                        <Border Stroke="#DDE4F0" BackgroundColor="#5A67BA"
+                 StrokeThickness="1" HorizontalOptions="End" StrokeShape="RoundRectangle 5" HeightRequest="40" VerticalOptions="Start">
+                            <Border.Shadow>
+                                <Shadow Brush="#0D404852" Offset="0,4" Radius="10" Opacity="0.3" />
+                            </Border.Shadow>
+                            <Grid Padding="16,8">
+                                <Label Text="Cancel" TextColor="White" Style="{StaticResource infoLabelStyle}">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </Grid>
+                        </Border>
+                    </HorizontalStackLayout>
+
+
+                </Grid>
+            </ScrollView>
+        </Frame>
+
+
+
+    </Grid>
 </ContentPage>
