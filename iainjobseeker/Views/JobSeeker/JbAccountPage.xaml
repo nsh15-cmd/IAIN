@@ -289,29 +289,32 @@ xmlns:dataform="clr-namespace:Syncfusion.Maui.DataForm;assembly=Syncfusion.Maui.
 
                     </VerticalStackLayout>
 
+                    <Label Text="Change Profile" FontFamily="PoppinsRegular" FontSize="14" TextColor="#737B8B"
+               VerticalOptions="Center" HorizontalOptions="Start" Margin="100,50,0,0" />
+
 
                     <HorizontalStackLayout Spacing="30" Grid.Row="1">
-                            <Label  Text="First Name" FontFamily="PoppinsRegular" FontSize="14" TextColor="#737B8B" />
+                            <Label  Text="First Name" FontFamily="PoppinsRegular" FontSize="14" TextColor="#737B8B" VerticalOptions="Center"/>
                             <Frame Background="#F5F7FA" BorderColor="#DDE4F0" HeightRequest="50" Padding="0,0,0,0" WidthRequest="700" MinimumWidthRequest="700"
                                HorizontalOptions="Center">
                                 <Entry Placeholder="Write your first name here" 
                                        MinimumHeightRequest="30" MinimumWidthRequest="700"
-                                       Text="{Binding UserObject.FirstName}"/>
+                                       Text="{Binding UserObject.FirstName}" TextColor="#737B8B"/>
                             </Frame>
                         </HorizontalStackLayout>
                     
                     <HorizontalStackLayout Spacing="30" Grid.Row="2">
-                        <Label Grid.Row="0" Text="Last Name" FontFamily="PoppinsRegular" FontSize="14" TextColor="#737B8B" />
+                        <Label Grid.Row="0" Text="Last Name" FontFamily="PoppinsRegular" FontSize="14" TextColor="#737B8B" VerticalOptions="Center"/>
                         <Frame Background="#F5F7FA" BorderColor="#DDE4F0" HeightRequest="50" Padding="0,0,0,0" WidthRequest="700" MinimumWidthRequest="700"
                                HorizontalOptions="Center">
                             <Entry Placeholder="Write your last name here" 
                                        MinimumHeightRequest="30" MinimumWidthRequest="700"
-                                       Text="{Binding UserObject.LastName}"/>
+                                       Text="{Binding UserObject.LastName}" TextColor="#737B8B"/>
                         </Frame>
                     </HorizontalStackLayout>
 
                     <HorizontalStackLayout Spacing="67" Grid.Row="3">
-                        <Label Grid.Row="0" Text="Email" FontFamily="PoppinsRegular" FontSize="14" TextColor="#737B8B" />
+                        <Label Grid.Row="0" Text="Email" FontFamily="PoppinsRegular" FontSize="14" TextColor="#737B8B" VerticalOptions="Center"/>
                         <Frame Background="#F5F7FA" BorderColor="#DDE4F0" HeightRequest="50" Padding="0,0,0,0" WidthRequest="700" MinimumWidthRequest="700"
                                HorizontalOptions="Center">
                             <Entry Placeholder="Write your email here" 
@@ -321,7 +324,7 @@ xmlns:dataform="clr-namespace:Syncfusion.Maui.DataForm;assembly=Syncfusion.Maui.
                     </HorizontalStackLayout>
 
                     <HorizontalStackLayout Spacing="61" Grid.Row="4">
-                        <Label Grid.Row="0" Text="Phone" FontFamily="PoppinsRegular" FontSize="14" TextColor="#737B8B" />
+                        <Label Grid.Row="0" Text="Phone" FontFamily="PoppinsRegular" FontSize="14" TextColor="#737B8B" VerticalOptions="Center"/>
                         <Frame Background="#F5F7FA" BorderColor="#DDE4F0" HeightRequest="50" Padding="0,0,0,0" WidthRequest="700" MinimumWidthRequest="700"
                                HorizontalOptions="Center">
                             <Entry Placeholder="Write your phone number here" 
@@ -330,35 +333,63 @@ xmlns:dataform="clr-namespace:Syncfusion.Maui.DataForm;assembly=Syncfusion.Maui.
                         </Frame>
                     </HorizontalStackLayout>
 
-            
-                    
 
-                    <Label Grid.Row="5" Text="Is Enrolled?" FontFamily="PoppinsRegular" FontSize="12" TextColor="#737B8B" />
-                    <FlexLayout Grid.Row="5" Grid.Column="1" Wrap="Wrap" Direction="Row">
-                        <HorizontalStackLayout>
-                            <Label Text="401k?" FontFamily="PoppinsRegular" FontSize="12" TextColor="#737B8B" />
-                            <CheckBox IsChecked="{Binding UserObject.IsEnrolledIn401k}" />
+
+
+                    <FlexLayout Grid.Row="6" Grid.Column="0" Wrap="Wrap" Direction="Row">
+                        <Label Text="Job Preferences" Style="{DynamicResource infoLabelStyle}"
+                        VerticalOptions="Start" HorizontalOptions="Center" FontSize="18"/>
+                        <HorizontalStackLayout Spacing="30" VerticalOptions="Start" Margin="0,-10,0,0" >
+                            <Label Grid.Row="0" Text="Desired Job Roles" FontFamily="PoppinsRegular" FontSize="14" TextColor="#737B8B" VerticalOptions="Center"/>
+                            <Frame Background="#F5F7FA" BorderColor="#DDE4F0" HeightRequest="50" Padding="0,0,0,0" WidthRequest="700" MinimumWidthRequest="700"
+                               HorizontalOptions="Center">
+                                <Entry Placeholder="Write your last name here" 
+                                       MinimumHeightRequest="30" MinimumWidthRequest="700"
+                                       Text="{Binding UserObject.LastName}" TextColor="#737B8B" />
+                            </Frame>
                         </HorizontalStackLayout>
-                        <HorizontalStackLayout>
-                            <Label Text="Flex Time?" FontFamily="PoppinsRegular" FontSize="12" TextColor="#737B8B" />
-                            <CheckBox x:Name="FlexTime" IsChecked="{Binding UserObject.IsEnrolledInFlexTime}" />
+                        
+                        <HorizontalStackLayout Spacing="30" VerticalOptions="Start" Margin="0,-5,0,10" >
+                            <Label Grid.Row="0" Text="Prefered Location" FontFamily="PoppinsRegular" FontSize="14" TextColor="#737B8B" VerticalOptions="Center"/>
+                            <Frame Background="#F5F7FA" BorderColor="#DDE4F0" HeightRequest="50" Padding="0,0,0,0" WidthRequest="700" MinimumWidthRequest="700"
+                               HorizontalOptions="Center">
+                                <Entry Placeholder="Write your last name here" 
+                                       MinimumHeightRequest="30" MinimumWidthRequest="700"
+                                       Text="{Binding UserObject.LastName}" TextColor="#737B8B" />
+                            </Frame>
                         </HorizontalStackLayout>
-                        <HorizontalStackLayout>
-                            <Label Text="Health Care?" FontFamily="PoppinsRegular" FontSize="12" TextColor="#737B8B" />
-                            <CheckBox IsChecked="{Binding UserObject.IsEnrolledInHealthCare}" />
+
+
+                        <HorizontalStackLayout Spacing="5" WidthRequest="180" HorizontalOptions="Start">
+                            <Label Text="Enable Notifications" 
+                                               FontFamily="PoppinsRegular" 
+                                               FontSize="12" 
+                                               TextColor="#737B8B" 
+                                               HorizontalOptions="Start" 
+                                               VerticalOptions="Center" />
+                            <CheckBox x:Name="Notifications" 
+                                      HorizontalOptions="End" 
+                                      VerticalOptions="Center" />
                         </HorizontalStackLayout>
-                        <HorizontalStackLayout>
-                            <Label Text="Health Savings Account?" FontFamily="PoppinsRegular" FontSize="12" TextColor="#737B8B" />
-                            <CheckBox IsChecked="{Binding UserObject.IsEnrolledInHSA}" />
+
+
+                        <HorizontalStackLayout Spacing="5" WidthRequest="130" HorizontalOptions="Start">
+                            <Label Text="Agree to Terms" 
+                                               FontFamily="PoppinsRegular" 
+                                               FontSize="12" 
+                                               TextColor="#737B8B" 
+                                               HorizontalOptions="Start" 
+                                               VerticalOptions="Center" />
+                            <CheckBox x:Name="Terms" 
+                                      HorizontalOptions="End" 
+                                      VerticalOptions="Center" />
                         </HorizontalStackLayout>
+
+
                     </FlexLayout>
 
 
-                    <Label Grid.Row="6" Text="Still Employed?" FontFamily="PoppinsRegular" FontSize="12" TextColor="#737B8B" />
-                    <Switch Grid.Row="6" Grid.Column="1" IsToggled="{Binding UserObject.IsActive}" />
-
-                    <Label Text="Employee Type" Grid.Row="7" FontFamily="PoppinsRegular" FontSize="12" TextColor="#737B8B" />
-                    <FlexLayout Grid.Row="7" Grid.Column="1" Wrap="Wrap" Direction="Row">
+                    <FlexLayout Grid.Row="8" Grid.Column="0" Wrap="Wrap" Direction="Row" Margin="100,0,0,0" >
                         <HorizontalStackLayout>
                             <Label Text="Full-Time" FontFamily="PoppinsRegular" FontSize="12" TextColor="#737B8B" />
                             <RadioButton x:Name="FullTime" IsChecked="{Binding UserObject.IsFullTime}" GroupName="EmployeeType" />
@@ -369,12 +400,37 @@ xmlns:dataform="clr-namespace:Syncfusion.Maui.DataForm;assembly=Syncfusion.Maui.
                         </HorizontalStackLayout>
                     </FlexLayout>
 
-                    <!-- Other fields like Birth Date, Start Time, Phone etc., can follow the same format -->
+                    <HorizontalStackLayout Grid.Row="9" Grid.Column="1" Spacing="10" HorizontalOptions="End" Margin="0,0,50,0">
+                        <Border Stroke="#DDE4F0" BackgroundColor="White" 
+                        StrokeThickness="1" HorizontalOptions="End" StrokeShape="RoundRectangle 5" HeightRequest="40" VerticalOptions="Start">
+                            <Border.Shadow>
+                                <Shadow Brush="#0D404852" Offset="0,4" Radius="10" Opacity="0.3" />
+                            </Border.Shadow>
+                            <Grid Padding="16,8">
+                                <Label Text="Saved Canges" Style="{StaticResource infoLabelStyle}">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </Grid>
+                        </Border>
 
-                    <HorizontalStackLayout Grid.Row="12" Grid.Column="1">
-                        <Button Text="Save" Command="{Binding SaveCommand}" />
-                        <Button Text="Cancel" />
+                        <Border Stroke="#DDE4F0" BackgroundColor="#5A67BA"
+                        StrokeThickness="1" HorizontalOptions="End" StrokeShape="RoundRectangle 5" HeightRequest="40" VerticalOptions="Start">
+                            <Border.Shadow>
+                                <Shadow Brush="#0D404852" Offset="0,4" Radius="10" Opacity="0.3" />
+                            </Border.Shadow>
+                            <Grid Padding="16,8">
+                                <Label Text="Cancel" TextColor="White" Style="{StaticResource infoLabelStyle}">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </Grid>
+                        </Border>
                     </HorizontalStackLayout>
+
+
                 </Grid>
             </ScrollView>
         </Frame>
