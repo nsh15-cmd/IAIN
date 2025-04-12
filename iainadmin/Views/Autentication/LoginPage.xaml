@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="iainadmin.Views.Autentication.LoginPage"
+             BackgroundColor="White"
+             WidthRequest="690"  
+             HeightRequest="690"
+             Padding="0">
+
+    <Frame Padding="0"
+        CornerRadius="30"  
+        HasShadow="True"
+        WidthRequest="700"
+        HeightRequest="730"
+        BackgroundColor="White"
+        HorizontalOptions="Center"
+        VerticalOptions="Center"  >
+
+        <VerticalStackLayout BackgroundColor="White" >
+
+            <!-- Stack for buttons (Minimize and Close) -->
+            <StackLayout Orientation="Horizontal" HorizontalOptions="End" VerticalOptions="EndAndExpand" Spacing="5">
+                <Button Text="–" Clicked="MinimizeWindow" BackgroundColor="Transparent" FontSize="25" TextColor="#C4C4C4" />
+                <Button Text="✕" Clicked="CloseWindow" BackgroundColor="Transparent" FontSize="25" TextColor="#C4C4C4" />
+            </StackLayout>
+
+            <!-- Logo Image -->
+            <Image Source="iain.png" HeightRequest="150" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+
+            <Label Text="Log in" TextColor="Gray" VerticalOptions="Center" FontFamily="PoppinsRegular" FontSize="48" HorizontalOptions="Center" Padding="0"/>
+
+            <!-- New to IAIN? Section -->
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="5">
+                <Label Text="New to IAIN?" TextColor="Gray" VerticalOptions="Center" FontFamily="PoppinsRegular" Padding="0" CharacterSpacing="0"/>
+                <Button Text="Sign Up" 
+                     Clicked="OnSignUpTapped" 
+                     BackgroundColor="Transparent" 
+                     TextColor="#368CE7"
+                     Padding="0"
+                     FontFamily="PoppinsRegular"/>
+            </HorizontalStackLayout>
+
+            <Label></Label>
+
+            <!-- Input Fields Section -->
+            <StackLayout HorizontalOptions="Center" Padding="10"  >
+
+                <!-- Email Input -->
+                <Grid ColumnDefinitions="Auto, *" RowDefinitions="Auto, Auto"  >
+                    <Label Text="Email" 
+                        TextColor="#737B8B"
+                        FontFamily="PoppinsRegular"
+                        Grid.Row="0" 
+                        Grid.Column="0"
+                        VerticalOptions="Start"/>
+
+                    <Frame Grid.Row="1" 
+                        BorderColor="#737B8B"
+                        Grid.Column="0"
+                        CornerRadius="10"
+                        BackgroundColor="#F5F7FA"
+                        Padding="10"
+                        HasShadow="False"
+                        WidthRequest="386"
+                        HeightRequest="48">
+                        <Entry HorizontalOptions="Fill" TextColor="#737B8B" FontSize="14" FontFamily="PoppinsRegular"  />
+                    </Frame>
+                </Grid>
+                <Label></Label>
+
+
+                <!-- Password Input -->
+                <Grid ColumnDefinitions="Auto, *" RowDefinitions="Auto, Auto">
+                    <Label Text="Password" 
+                        TextColor="#737B8B"
+                        FontFamily="PoppinsRegular"
+                        Grid.Row="0" 
+                        Grid.Column="0"
+                        VerticalOptions="Start" />
+
+                    <Frame Grid.Row="1" 
+                        Grid.Column="0"
+                        CornerRadius="10"
+                        BorderColor="#737B8B"
+                        Padding="10"
+                        HasShadow="False"
+                        WidthRequest="386"
+                        HeightRequest="48"
+                        BackgroundColor="#F5F7FA">
+                        <Entry IsPassword="True"
+                            HorizontalOptions="Fill"  
+                            TextColor="#737B8B"/>
+                    </Frame>
+                </Grid>
+
+                <!-- Forgot Password label below the password field -->
+                <Label Text="Forgot Password?" 
+                    HorizontalOptions="Start" 
+                    VerticalOptions="Start" 
+                    Padding="2"
+                    TextColor="#368CE7"
+                    FontSize="12">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnForgotPasswordTapped" />
+                    </Label.GestureRecognizers>
+                </Label>
+
+            </StackLayout>
+
+            <!-- Login Button -->
+            <Button Text="Login" Clicked="OnLoginClicked" BackgroundColor="#C7CEFF" TextColor="Black" WidthRequest="184" HeightRequest="48" CornerRadius="15" FontFamily="PoppinsRegular" />
+
+            <!-- Horizontal Divider -->
+            <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center" Padding="30" Spacing="63">
+                <BoxView HeightRequest="1" BackgroundColor="Gray" VerticalOptions="Center" HorizontalOptions="FillAndExpand"  WidthRequest="100"/>
+
+                <Label Text="or"
+                    FontSize="12"
+                    FontFamily="PoppinsRegular"
+                    TextColor="Gray"
+                    VerticalOptions="Center" />
+
+                <BoxView HeightRequest="1" BackgroundColor="Gray" VerticalOptions="Center" HorizontalOptions="FillAndExpand" WidthRequest="100"/>
+            </StackLayout>
+
+            <!-- Google Login Button -->
+            <ImageButton Source="google.png"
+                      WidthRequest="20"
+                      HeightRequest="20"
+                      BackgroundColor="Transparent"
+                      Clicked="OnGoogleLoginTapped"
+                      HorizontalOptions="Fill"
+                      VerticalOptions="Center" MinimumHeightRequest="30" />
+
+
+
+        </VerticalStackLayout>
+    </Frame>
+</ContentPage>

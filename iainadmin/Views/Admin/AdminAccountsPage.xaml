@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:core="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+             x:Class="iainadmin.Views.Admin.AdminAccountsPage"
+         WidthRequest="1920"
+         HeightRequest="1080"
+         BackgroundColor="#F5F7FA">
+
+    <Grid ColumnDefinitions="Auto, Auto, *, Auto, Auto" RowDefinitions="Auto, *, Auto">
+
+        <!-- Sidebar -->
+        <VerticalStackLayout Background="{DynamicResource backgroundSidebar}" 
+                         WidthRequest="242" 
+                         HeightRequest="1080" 
+                         Grid.Column="0" 
+                         Grid.RowSpan="2">
+            <HorizontalStackLayout>
+                <Button Text="☰"
+                    FontSize="18"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Start"
+                    BackgroundColor="Transparent"
+                    TextColor="#707FDD"
+                    Margin="5"/>
+                <Image Source="iain.png" HeightRequest="70" WidthRequest="70" Margin="30,0,0,0"/>
+            </HorizontalStackLayout>
+
+            <Label Text="MENU"
+               Style="{StaticResource sidebarLabelStyle}"
+               Margin="50,40,0,0" />
+
+            <!-- Sidebar Items -->
+            <!-- Repeatable Section -->
+            <Grid ColumnDefinitions="Auto, Auto" HeightRequest="50" VerticalOptions="Center">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnDashboardTapped"/>
+                </Grid.GestureRecognizers>
+                <Image Source="dashboard.png" HeightRequest="38" WidthRequest="38" Margin="42,0,0,0"/>
+                <Label Text="Home" Grid.Column="1" Style="{StaticResource sidebarLabelStyle}" VerticalOptions="Center"/>
+            </Grid>
+
+            <Grid ColumnDefinitions="Auto, Auto" HeightRequest="50" VerticalOptions="Center">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnJobPostingTapped"/>
+                </Grid.GestureRecognizers>
+                <Image Source="jobposting.png" HeightRequest="28" WidthRequest="28" Margin="46,0,0,0"/>
+                <Label Text="Job Posting" Grid.Column="1" Style="{StaticResource sidebarLabelStyle}" VerticalOptions="Center" Margin="5,0,0,0"/>
+            </Grid>
+
+            <Grid ColumnDefinitions="Auto, Auto" HeightRequest="50" VerticalOptions="Center">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnApplicantsTapped"/>
+                </Grid.GestureRecognizers>
+                <Image Source="applicants.png" HeightRequest="30" WidthRequest="27" Margin="46,0,0,0"/>
+                <Label Text="Saved Jobs" Grid.Column="1" Style="{StaticResource sidebarLabelStyle}" VerticalOptions="Center" Margin="5,0,0,0"/>
+            </Grid>
+
+            <Grid ColumnDefinitions="Auto, Auto" HeightRequest="50" VerticalOptions="Center">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnMessagesTapped"/>
+                </Grid.GestureRecognizers>
+                <Image Source="messages.png" HeightRequest="30" WidthRequest="30" Margin="46,0,0,0"/>
+                <Label Text="Messages" Grid.Column="1" Style="{StaticResource sidebarLabelStyle}" VerticalOptions="Center" Margin="3,0,0,0"/>
+            </Grid>
+
+            <Grid ColumnDefinitions="Auto, Auto" HeightRequest="50" VerticalOptions="Center">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnReportsTapped"/>
+                </Grid.GestureRecognizers>
+                <Image Source="savejobs.png" HeightRequest="35" WidthRequest="35" Margin="43,0,0,0"/>
+                <Label Text="Reports &amp; Analytics" Grid.Column="1" Style="{StaticResource sidebarLabelStyle}" VerticalOptions="Center" Margin="1,0,0,0"/>
+            </Grid>
+
+            <Grid ColumnDefinitions="Auto, Auto" HeightRequest="50" VerticalOptions="Center">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnManagementTapped"/>
+                </Grid.GestureRecognizers>
+                <Image Source="teammanagement.png" HeightRequest="34" WidthRequest="34" Margin="44,0,0,0"/>
+                <Label Text="Team Management" Grid.Column="1" Style="{StaticResource sidebarLabelStyle}" VerticalOptions="Center"/>
+            </Grid>
+
+            <Grid ColumnDefinitions="Auto, Auto" HeightRequest="50" VerticalOptions="Center">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnSettingsTapped"/>
+                </Grid.GestureRecognizers>
+                <Image Source="settings.png" HeightRequest="37" WidthRequest="37" Margin="42,0,0,0"/>
+                <Label Text="Settings" Grid.Column="1" Style="{StaticResource sidebarLabelStyle}" VerticalOptions="Center"/>
+            </Grid>
+
+            <Grid ColumnDefinitions="Auto, Auto" HeightRequest="50" VerticalOptions="Center">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnAccountsTapped"/>
+                </Grid.GestureRecognizers>
+                <Image Source="accounts.png" HeightRequest="30" WidthRequest="30" Margin="45,0,0,0"/>
+                <Label Text="Accounts" Grid.Column="1" Style="{StaticResource sidebarLabelStyle}" VerticalOptions="Center" Margin="3,0,0,0"/>
+            </Grid>
+
+            <Grid ColumnDefinitions="Auto, Auto" HeightRequest="50" VerticalOptions="Center">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnHelpTapped"/>
+                </Grid.GestureRecognizers>
+                <Image Source="help.png" HeightRequest="35" WidthRequest="35" Margin="43,0,0,0"/>
+                <Label Text="Help" Grid.Column="1" Style="{StaticResource sidebarLabelStyle}" VerticalOptions="Center" Margin="2,0,0,0"/>
+            </Grid>
+        </VerticalStackLayout>
+
+        <!-- Top Header with Profile, Search, Window Controls -->
+        <HorizontalStackLayout Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="0" Margin="30,0,0,0" Spacing="8" VerticalOptions="Center" HorizontalOptions="Fill">
+            <!-- Profile Info -->
+            <Image Source="profile.png" WidthRequest="30" HeightRequest="30"/>
+            <Label Text="Mr. Kupido" FontFamily="PoppinsRegular" FontSize="14" TextColor="#707FDD" VerticalOptions="Center" Margin="0,0,900,0"/>
+
+            <!-- Search Bar -->
+            <Frame BackgroundColor="#F6F6FB" WidthRequest="300" HeightRequest="45" BorderColor="{DynamicResource backgroundSidebar}" 
+               CornerRadius="10" Padding="0" HasShadow="False" VerticalOptions="Center" HorizontalOptions="End" Margin="170,0,15,0">
+                <Grid ColumnDefinitions="*, Auto" Padding="10,0">
+                    <Entry x:Name="SearchEntry" Placeholder="Search here" BackgroundColor="Transparent" Style="{StaticResource infoLabelStyle}" />
+                    <ImageButton Source="magnifying.png" WidthRequest="24" HeightRequest="24" BackgroundColor="Transparent" HorizontalOptions="End" VerticalOptions="Center" />
+                </Grid>
+            </Frame>
+
+            <!-- Minimize & Close -->
+            <HorizontalStackLayout Spacing="10">
+                <Button Text="–" FontSize="20" WidthRequest="40" HeightRequest="40" Clicked="OnMinimizeClicked" BackgroundColor="Transparent" TextColor="{DynamicResource button}" CornerRadius="0"/>
+                <Button Text="✕" FontSize="15" WidthRequest="40" HeightRequest="40" Clicked="OnCloseClicked" BackgroundColor="Transparent" TextColor="{DynamicResource button}" CornerRadius="0"/>
+            </HorizontalStackLayout>
+        </HorizontalStackLayout>
+
+        <BoxView Grid.Row="0"
+             Grid.ColumnSpan="5"
+             HeightRequest="0.5"
+             Color="#CCCCCC"
+             HorizontalOptions="Fill"
+             Margin="0,65,0,0" />
+
+        <!-- Main Content Area -->
+        <Label Text="Accounts" 
+                   HorizontalOptions="Center" 
+                   VerticalOptions="Center" Style="{StaticResource headerlineLabelStyle}" 
+                   Margin="100,0,0,900" FontSize="25"
+                   Grid.Column="1" Grid.Row="1"/>
+
+
+
+        <Frame Grid.Column="1" Grid.Row="1" Background="#FBFCFE" BorderColor="#DDE4F0" WidthRequest="1180" HeightRequest="800" HorizontalOptions="Center" Margin="250,0,0,0">
+            <ScrollView>
+
+
+                <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto"
+              ColumnDefinitions="Auto,*" ColumnSpacing="20" RowSpacing="10">
+
+                    <VerticalStackLayout Spacing="20" VerticalOptions="Center" Grid.Row="0" Grid.Column="0" HorizontalOptions="Start">
+                        <Label Text="Personal Information" Style="{DynamicResource infoLabelStyle}"
+               VerticalOptions="Center" HorizontalOptions="Center" FontSize="18"/>
+
+                        <core:SfAvatarView ContentType="Custom"
+                           ImageSource="employerr.png"
+                           AvatarName="N"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Start"  
+                           HeightRequest="70"
+                           CornerRadius="35"
+                           WidthRequest="70"/>
+
+                    </VerticalStackLayout>
+
+                    <Label Text="Change Profile" FontFamily="PoppinsRegular" FontSize="14" TextColor="#737B8B"
+               VerticalOptions="Center" HorizontalOptions="Start" Margin="100,50,0,0" />
+
+
+                    <HorizontalStackLayout Spacing="30" Grid.Row="1">
+                        <Label  Text="First Name" FontFamily="PoppinsRegular" FontSize="14" TextColor="#737B8B" VerticalOptions="Center"/>
+                        <Frame Background="#F5F7FA" BorderColor="#DDE4F0" HeightRequest="50" Padding="0,0,0,0" WidthRequest="700" MinimumWidthRequest="700"
+                               HorizontalOptions="Center">
+                            <Entry Placeholder="Write your first name here" 
+                                       MinimumHeightRequest="30" MinimumWidthRequest="700"
+                                       Text="{Binding UserObject.FirstName}" TextColor="#737B8B"/>
+                        </Frame>
+                    </HorizontalStackLayout>
+
+                    <HorizontalStackLayout Spacing="30" Grid.Row="2">
+                        <Label Grid.Row="0" Text="Last Name" FontFamily="PoppinsRegular" FontSize="14" TextColor="#737B8B" VerticalOptions="Center"/>
+                        <Frame Background="#F5F7FA" BorderColor="#DDE4F0" HeightRequest="50" Padding="0,0,0,0" WidthRequest="700" MinimumWidthRequest="700"
+                               HorizontalOptions="Center">
+                            <Entry Placeholder="Write your last name here" 
+                                       MinimumHeightRequest="30" MinimumWidthRequest="700"
+                                       Text="{Binding UserObject.LastName}" TextColor="#737B8B"/>
+                        </Frame>
+                    </HorizontalStackLayout>
+
+                    <HorizontalStackLayout Spacing="67" Grid.Row="3">
+                        <Label Grid.Row="0" Text="Email" FontFamily="PoppinsRegular" FontSize="14" TextColor="#737B8B" VerticalOptions="Center"/>
+                        <Frame Background="#F5F7FA" BorderColor="#DDE4F0" HeightRequest="50" Padding="0,0,0,0" WidthRequest="700" MinimumWidthRequest="700"
+                               HorizontalOptions="Center">
+                            <Entry Placeholder="Write your email here" 
+                                       MinimumHeightRequest="30" MinimumWidthRequest="700"
+                                       Text="{Binding UserObject.Email}" TextColor="#737B8B" />
+                        </Frame>
+                    </HorizontalStackLayout>
+
+                    <HorizontalStackLayout Spacing="61" Grid.Row="4">
+                        <Label Grid.Row="0" Text="Phone" FontFamily="PoppinsRegular" FontSize="14" TextColor="#737B8B" VerticalOptions="Center"/>
+                        <Frame Background="#F5F7FA" BorderColor="#DDE4F0" HeightRequest="50" Padding="0,0,0,0" WidthRequest="700" MinimumWidthRequest="700"
+                               HorizontalOptions="Center">
+                            <Entry Placeholder="Write your phone number here" 
+                                       MinimumHeightRequest="30" MinimumWidthRequest="700"
+                                       Text="{Binding UserObject.PhoneNumber}" TextColor="#737B8B" Keyboard="Numeric"/>
+                        </Frame>
+                    </HorizontalStackLayout>
+
+
+
+
+                    <FlexLayout Grid.Row="6" Grid.Column="0" Wrap="Wrap" Direction="Row">
+                        <Label Text="Position Information" Style="{DynamicResource infoLabelStyle}"
+                        VerticalOptions="Start" HorizontalOptions="Center" FontSize="18"/>
+                        <HorizontalStackLayout Spacing="30" VerticalOptions="Start" Margin="0,-10,0,0" >
+                            <Label Grid.Row="0" Text="Poition Description" FontFamily="PoppinsRegular" FontSize="14" TextColor="#737B8B" VerticalOptions="Center"/>
+                            <Frame Background="#F5F7FA" BorderColor="#DDE4F0" HeightRequest="50" Padding="0,0,0,0" WidthRequest="700" MinimumWidthRequest="700"
+                               HorizontalOptions="Center">
+                                <Entry Placeholder="Write your last name here" 
+                                       MinimumHeightRequest="30" MinimumWidthRequest="700"
+                                       Text="{Binding UserObject.LastName}" TextColor="#737B8B" />
+                            </Frame>
+                        </HorizontalStackLayout>
+
+
+
+
+                        <HorizontalStackLayout Spacing="5" WidthRequest="180" HorizontalOptions="Start">
+                            <Label Text="Enable Notifications" 
+                                               FontFamily="PoppinsRegular" 
+                                               FontSize="12" 
+                                               TextColor="#737B8B" 
+                                               HorizontalOptions="Start" 
+                                               VerticalOptions="Center" />
+                            <CheckBox x:Name="Notifications" 
+                                      HorizontalOptions="End" 
+                                      VerticalOptions="Center" />
+                        </HorizontalStackLayout>
+
+
+                        <HorizontalStackLayout Spacing="5" WidthRequest="130" HorizontalOptions="Start">
+                            <Label Text="Agree to Terms" 
+                                               FontFamily="PoppinsRegular" 
+                                               FontSize="12" 
+                                               TextColor="#737B8B" 
+                                               HorizontalOptions="Start" 
+                                               VerticalOptions="Center" />
+                            <CheckBox x:Name="Terms" 
+                                      HorizontalOptions="End" 
+                                      VerticalOptions="Center" />
+                        </HorizontalStackLayout>
+
+
+                    </FlexLayout>
+
+
+
+                    <HorizontalStackLayout Grid.Row="9" Grid.Column="1" Spacing="10" HorizontalOptions="End" Margin="0,0,50,0">
+                        <Border Stroke="#DDE4F0" BackgroundColor="White" 
+                        StrokeThickness="1" HorizontalOptions="End" StrokeShape="RoundRectangle 5" HeightRequest="40" VerticalOptions="Start">
+                            <Border.Shadow>
+                                <Shadow Brush="#0D404852" Offset="0,4" Radius="10" Opacity="0.3" />
+                            </Border.Shadow>
+                            <Grid Padding="16,8">
+                                <Label Text="Saved Canges" Style="{StaticResource infoLabelStyle}">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </Grid>
+                        </Border>
+
+                        <Border Stroke="#DDE4F0" BackgroundColor="#5A67BA"
+                        StrokeThickness="1" HorizontalOptions="End" StrokeShape="RoundRectangle 5" HeightRequest="40" VerticalOptions="Start">
+                            <Border.Shadow>
+                                <Shadow Brush="#0D404852" Offset="0,4" Radius="10" Opacity="0.3" />
+                            </Border.Shadow>
+                            <Grid Padding="16,8">
+                                <Label Text="Cancel" TextColor="White" Style="{StaticResource infoLabelStyle}">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </Grid>
+                        </Border>
+                    </HorizontalStackLayout>
+
+
+                </Grid>
+            </ScrollView>
+        </Frame>
+
+    </Grid>
+</ContentPage>
