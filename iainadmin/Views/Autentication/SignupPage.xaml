@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="iainadmin.Views.Autentication.SignupPage">
+    <Frame Padding="30"
+        CornerRadius="30"
+        HasShadow="True"
+        WidthRequest="600"
+        HeightRequest="750"
+        BackgroundColor="White"
+        HorizontalOptions="Center"
+        VerticalOptions="Center">
+        <VerticalStackLayout Spacing="10" HorizontalOptions="Center" VerticalOptions="Center">
+
+            <!-- Title: Sign Up -->
+            <Label Text="Sign up" 
+                FontFamily="PoppinsRegular" 
+                FontSize="48"
+                HorizontalOptions="Center" 
+                VerticalOptions="Center" 
+                TextColor="#737B8B"/>
+
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="5">
+                <Label Text="Already have an account?" TextColor="Gray" VerticalOptions="Center" FontFamily="PoppinsRegular" Padding="0" CharacterSpacing="0"/>
+                <Button Text="Log In" 
+                     Clicked="OnLoginTapped" 
+                     BackgroundColor="Transparent" 
+                     TextColor="#368CE7"
+                     Padding="0"
+                     FontFamily="PoppinsRegular"
+                     FontSize="14"/>
+            </HorizontalStackLayout>
+
+            <!-- Email Input -->
+            <Grid ColumnDefinitions="Auto, *" RowDefinitions="Auto, Auto" HorizontalOptions="Center" VerticalOptions="Center">
+                <Label Text="Email" 
+                    TextColor="#737B8B"
+                    FontFamily="PoppinsRegular"
+                    Grid.Row="0" 
+                    Grid.Column="0"
+                    VerticalOptions="Start"/>
+                <Frame Grid.Row="1" 
+                    BorderColor="#737B8B"
+                    Grid.Column="0"
+                    CornerRadius="10"
+                    BackgroundColor="#F5F7FA"
+                    Padding="5"
+                    HasShadow="False"
+                    WidthRequest="350"
+                    HeightRequest="40">
+                    <Entry HorizontalOptions="Fill" TextColor="#737B8B" FontSize="14" FontFamily="PoppinsRegular"/>
+                </Frame>
+            </Grid>
+
+            <!-- Name Input -->
+            <Grid ColumnDefinitions="Auto, *" RowDefinitions="Auto, Auto" HorizontalOptions="Center" VerticalOptions="Center">
+                <Label Text="Name" 
+                    TextColor="#737B8B"
+                    FontFamily="PoppinsRegular"
+                    Grid.Row="0" 
+                    Grid.Column="0"
+                    VerticalOptions="Start"/>
+                <Frame Grid.Row="1" 
+                    BorderColor="#737B8B"
+                    Grid.Column="0"
+                    CornerRadius="10"
+                    BackgroundColor="#F5F7FA"
+                    Padding="5"
+                    HasShadow="False"
+                    WidthRequest="350"
+                    HeightRequest="40">
+                    <Entry HorizontalOptions="Fill" TextColor="#737B8B" FontSize="14" FontFamily="PoppinsRegular"/>
+                </Frame>
+            </Grid>
+
+            <!-- Phone Number Input -->
+            <Grid ColumnDefinitions="Auto, *" RowDefinitions="Auto, Auto">
+                <Label Text="Phone Number" 
+                    TextColor="#737B8B"
+                    FontFamily="PoppinsRegular"
+                    Grid.Row="0" 
+                    Grid.Column="0"
+                    VerticalOptions="Start"/>
+                <Frame Grid.Row="1" 
+                    BorderColor="#737B8B"
+                    Grid.Column="0"
+                    CornerRadius="10"
+                    BackgroundColor="#F5F7FA"
+                    Padding="5"
+                    HasShadow="False"
+                    WidthRequest="350"
+                    HeightRequest="40">
+                    <Entry HorizontalOptions="Fill" TextColor="#737B8B" FontSize="14" FontFamily="PoppinsRegular"/>
+                </Frame>
+            </Grid>
+
+            <!-- Age Input -->
+            <Grid ColumnDefinitions="Auto, *" RowDefinitions="Auto, Auto">
+                <Label Text="Age" 
+                    TextColor="#737B8B"
+                    FontFamily="PoppinsRegular"
+                    Grid.Row="0" 
+                    Grid.Column="0"
+                    VerticalOptions="Start"/>
+                <Frame Grid.Row="1" 
+                    BorderColor="#737B8B"
+                    Grid.Column="0"
+                    CornerRadius="10"
+                    BackgroundColor="#F5F7FA"
+                    Padding="5"
+                    HasShadow="False"
+                    WidthRequest="350"
+                    HeightRequest="40">
+                    <Entry HorizontalOptions="Fill" TextColor="#737B8B" FontSize="14" FontFamily="PoppinsRegular"/>
+                </Frame>
+            </Grid>
+
+            <!-- Gender Input -->
+            <Grid ColumnDefinitions="Auto, *" RowDefinitions="Auto, Auto">
+                <Label Text="Gender" 
+                    TextColor="#737B8B"
+                    FontFamily="PoppinsRegular"
+                    Grid.Row="0" 
+                    Grid.Column="0"
+                    VerticalOptions="Start"/>
+                <Frame Grid.Row="1" 
+                    BorderColor="#737B8B"
+                    Grid.Column="0"
+                    CornerRadius="10"
+                    BackgroundColor="#F5F7FA"
+                    Padding="5"
+                    HasShadow="False"
+                    WidthRequest="350"
+                    HeightRequest="40">
+                    <Entry HorizontalOptions="Fill" TextColor="#737B8B" FontSize="14" FontFamily="PoppinsRegular"/>
+                </Frame>
+            </Grid>
+
+            <!-- Password Input -->
+            <Grid ColumnDefinitions="Auto, *" RowDefinitions="Auto, Auto">
+                <Label Text="Password" 
+                    TextColor="#737B8B"
+                    FontFamily="PoppinsRegular"
+                    Grid.Row="0" 
+                    Grid.Column="0"
+                    VerticalOptions="Start"/>
+                <Frame Grid.Row="1" 
+                    BorderColor="#737B8B"
+                    Grid.Column="0"
+                    CornerRadius="10"
+                    BackgroundColor="#F5F7FA"
+                    Padding="5"
+                    HasShadow="False"
+                    WidthRequest="350"
+                    HeightRequest="40">
+                    <Entry IsPassword="True"
+                        HorizontalOptions="Fill"  
+                        TextColor="#737B8B"/>
+                </Frame>
+            </Grid>
+
+            <!-- Terms and Conditions Checkbox -->
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="0">
+                <CheckBox x:Name="TermsCheckBox" HorizontalOptions="Start" VerticalOptions="Center"/>
+                <Label Text="I agree to the " TextColor="Gray" VerticalOptions="Center" FontFamily="PoppinsRegular" Padding="0" CharacterSpacing="0" FontSize="12" />
+                <Button Text=" Terms and Condition" 
+                     Clicked="OnTermsTapped" 
+                     BackgroundColor="Transparent" 
+                     TextColor="#368CE7"
+                     Padding="0"
+                     FontFamily="PoppinsRegular"
+                     FontSize="12"/>
+            </HorizontalStackLayout>
+
+            <!-- Sign Up Button -->
+            <Button Text="Sign up"
+                 BackgroundColor="#C7CEFF"
+                 TextColor="Black"
+                 WidthRequest="200"
+                 HeightRequest="48"
+                 CornerRadius="10"
+                 FontFamily="PoppinsRegular"
+                 VerticalOptions="Center"
+                 Clicked="OnSignUpClicked"/>
+
+        </VerticalStackLayout>
+    </Frame>
+
+</ContentPage>
