@@ -14,7 +14,7 @@ namespace iainjobseeker.ViewModels
                 if (_pdfPath != value)
                 {
                     _pdfPath = value;
-                    OnPropertyChanged(nameof(PdfPath));
+                    OnPropertyChanged(nameof(PdfPath));                    
                 }
             }
         }
